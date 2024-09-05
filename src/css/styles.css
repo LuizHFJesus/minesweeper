@@ -1,0 +1,162 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap');
+
+:root {
+    --primary: #FFC92F;
+    --bg-light: #F3F3F3;
+    --bg-dark: #191A23;
+    --text-primary: black;
+    --text-light: white;
+    --disabled: #898989;
+    --field-closed: #7F72FC;
+    --field-closed-variant: #6C6A7D;
+    --field-open: #FCF972;
+    --field-open-variant: #FCD772;
+
+    --radius-xs: 7px;
+    --radius-sm: 14px;
+    --radius-xl: 45px;
+}
+
+* {
+    box-sizing: border-box;
+    font-family: "Space Grotesk", sans-serif;
+    margin: unset;
+    padding: unset;    
+}
+
+/* Text CSS styles */
+
+p {
+    font-size: 1.125rem;
+}
+
+h1 {
+    font-size: 3.75rem;
+}
+
+h2 {
+    font-size: 2.5rem;
+}
+
+h3 {
+    font-size: 1.875rem;
+}
+
+h4 {
+    font-size: 1.25rem;
+}
+
+p, h1, h2, h3, h4 {
+    color: var(--text-primary);
+}
+
+/* Content CSS styles */
+
+body {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--primary);
+    gap: 70px;
+    margin: 0 100px;
+    height: 100vh;
+}
+
+header {
+    align-items: start;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 20px 0;
+    width: 100%;
+}
+
+footer {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    gap: 70px;
+    justify-content: center;
+    padding: 20px 0;
+    width: 100%;
+}
+
+main {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 70px;
+}
+
+.content-row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 70px;
+}
+
+.content-column {
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+    max-width: 640px;
+}
+
+.container-row-btn {
+    display: flex;
+    flex-direction: row;
+    gap: 35px;
+}
+
+/* Image/Logo CSS styles */
+
+.container-logo {  
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo-icon {
+    height: 64px;
+    width: 64px;
+}
+
+.logo-content {
+    height: 500px;
+    width: 500px;
+}
+
+.logo-footer {
+    height: 48px;
+    width: auto;
+}
+
+/* Button CSS styles */
+
+.btn {
+    border: none;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    font-size: 1.25rem;
+    padding: 20px 35px;
+    text-align: center;
+    text-decoration: none;
+    transition: opacity 0.2s;
+}
+
+.btn:hover {
+    opacity: 0.85;
+}
+
+.btn.dark {
+    background-color: var(--bg-dark);
+    color: var(--text-light);
+}
+
+.btn.light {
+    background-color: var(--bg-light);
+    color: var(--text-primary);
+}
