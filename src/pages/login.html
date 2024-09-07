@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>CampoMinado!</title>
+    <link rel="icon" href="../images/ic-bomb-logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <header>
+        <div class="container-logo">
+            <img class="logo-icon" src="../images/ic-bomb-logo.png" alt="Bomba">
+            <h2>CampoMinado!</h2>
+        </div>
+    </header>
+
+    <main>
+        <div class="container-header-text column">
+            <h2>Bem-vindo de volta!</h2>
+            <p>Entre com suas credenciais para retomar sua aventura e desafiar o campo minado mais uma vez!</p>
+        </div>
+
+        <div class="content-row">
+            <img class="logo-content" src="../images/ic-bomb-logo.png" alt="Bomba">
+
+            <div class="form-container">
+                <form action="/login" method="post">
+                    <div class="form-field">
+                        <label for="email">E-mail</label>
+                        <input type="email" id="email" name="email" placeholder="E-mail" required>
+                    </div>
+
+                    <div class="form-field">
+                        <label for="password">Senha</label>
+                        <input type="password" id="password" name="password" placeholder="Senha" required>
+                    </div>                                    
+                    
+                    <a href="game-selection.html" class="filled-btn dark">Entrar na conta!</a>
+                    <!-- <button type="submit" class="filled-btn dark">Entrar na conta!</button> -->
+                </form>
+
+                <a href="register.html">Ainda não tem uma conta? Cadastre-se!</a>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <img class="logo-footer" src="../images/logo-unicamp.png" alt="Logo UNICAMP">
+        <h3>SI401 - Programação para a Web</h3>
+        <img class="logo-footer" src="../images/logo-ft.png" alt="Logo FT">
+    </footer>
+</body>
+</html>
