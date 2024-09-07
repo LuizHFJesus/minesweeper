@@ -16,14 +16,13 @@
 
     <main>
         <div class="container-header-text column">
-            <h2>Junte-se à Aventura!</h2>
+            <h2>Junte-se à aventura!</h2>
             <p>Cadastre-se e entre na ação! Torne-se um mestre do Campo Minado criando sua conta agora.</p>
-
         </div>
 
         <div class="content-row">
             <div class="form-container">
-                <form action="/submit" method="post">
+                <form action="/register" method="post">
                     <div class="form-field">
                         <label for="name">Nome completo*</label>
                         <input type="text" id="name" name="name" placeholder="Nome completo" required>
@@ -37,7 +36,7 @@
 
                         <div class="form-field hug">
                             <label for="dob">Data de nascimento*</label>
-                            <input type="date" id="dob" name="dob" placeholder="DD/MM/AAAA" required>
+                            <input type="date" id="dob" name="dob" required>
                         </div>
                     </div>
 
@@ -63,11 +62,13 @@
                         <input type="password" id="password" name="password" placeholder="Senha" required>
                     </div>                                    
                     
-                    <button type="submit" class="filled-btn dark fill">Criar conta!</button>
+                    <a href="game-selection.html" class="filled-btn dark">Criar conta!</a>
+                    <!-- <button type="submit" class="filled-btn dark">Criar conta!</button> -->
                 </form>
 
                 <a href="login.html">Já tem uma conta? Faça o login!</a>
             </div>
+            
             <img class="logo-content" src="../images/ic-bomb-logo.png" alt="Bomba">
         </div>
     </main>

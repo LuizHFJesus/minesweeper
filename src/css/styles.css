@@ -56,19 +56,13 @@ p, h1, h2, h3, h4 {
     color: var(--text-primary);
 }
 
-nav a {
-    text-decoration: none; 
-    font-size: 1.25rem;
-    color: var(--text-primary);
-}
-
 /* Content container CSS styles */
 
 body {
     display: flex;
     flex-direction: column;
     background-color: var(--primary);
-    gap: 70px;
+    gap: 50px;
     margin: 0 100px;
     height: 100vh;
 }
@@ -184,6 +178,12 @@ main {
     color: var(--text-primary);
 }
 
+nav a {
+    text-decoration: none; 
+    font-size: 1.25rem;
+    color: var(--text-primary);
+}
+
 /* Form component CSS styles */
 
 .form-container {
@@ -193,7 +193,8 @@ main {
     display: flex;
     flex-direction: column;
     gap: 20px;
-    max-width: 640px;
+    /* TODO: Change fixed width to be the max width */
+    width: 640px;
     padding: 50px;
 }
 
@@ -201,18 +202,18 @@ form {
     display: flex;
     flex-direction: column;
     gap: 25px;
+    width: 100%;
 }
 
 .form-field {
     display: flex;
     flex-direction: column;
-    flex-grow: 2;
+    flex-grow: 1;
     gap: 5px;
 }
 
 .form-field.hug {
     flex-grow: 0;
-    flex-shrink: 1;
 }
 
 .form-field-line {
@@ -238,6 +239,7 @@ input[type="date"] {
     font-size: 1.125rem;
     width: 100%;
 }
+
 .form-container a {
     color: var(--text-primary);
     font-size: 1.125rem;
