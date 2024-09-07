@@ -62,7 +62,7 @@ body {
 }
 
 header {
-    align-items: start;
+    align-items: center;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -158,5 +158,16 @@ main {
 
 .btn.light {
     background-color: var(--bg-light);
+    color: var(--text-primary);
+}
+
+nav {
+    display: flex;
+    gap: 25px;
+}
+
+nav a {
+    text-decoration: none; 
+    font-size: 1.25rem;
     color: var(--text-primary);
 }
