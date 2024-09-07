@@ -17,6 +17,8 @@
     --radius-xl: 45px;
 }
 
+/* Generic component CSS styles */
+
 * {
     box-sizing: border-box;
     font-family: "Space Grotesk", sans-serif;
@@ -24,7 +26,11 @@
     padding: unset;    
 }
 
-/* Text CSS styles */
+.column {
+    flex-direction: column;
+}
+
+/* Text component CSS styles */
 
 p {
     font-size: 1.125rem;
@@ -50,7 +56,13 @@ p, h1, h2, h3, h4 {
     color: var(--text-primary);
 }
 
-/* Content CSS styles */
+nav a {
+    text-decoration: none; 
+    font-size: 1.25rem;
+    color: var(--text-primary);
+}
+
+/* Content container CSS styles */
 
 body {
     display: flex;
@@ -68,6 +80,11 @@ header {
     justify-content: space-between;
     padding: 20px 0;
     width: 100%;
+}
+
+nav {
+    display: flex;
+    gap: 25px;
 }
 
 footer {
@@ -110,7 +127,13 @@ main {
     gap: 35px;
 }
 
-/* Image/Logo CSS styles */
+.container-header-text {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+/* Image component CSS styles */
 
 .container-logo {  
     display: inline-flex;
@@ -134,9 +157,9 @@ main {
     width: auto;
 }
 
-/* Button CSS styles */
+/* Button component CSS styles */
 
-.btn {
+.filled-btn {
     border: none;
     border-radius: var(--radius-sm);
     cursor: pointer;
@@ -147,27 +170,16 @@ main {
     transition: opacity 0.2s;
 }
 
-.btn:hover {
+.filled-btn:hover {
     opacity: 0.85;
 }
 
-.btn.dark {
+.filled-btn.dark {
     background-color: var(--bg-dark);
     color: var(--text-light);
 }
 
-.btn.light {
+.filled-btn.light {
     background-color: var(--bg-light);
-    color: var(--text-primary);
-}
-
-nav {
-    display: flex;
-    gap: 25px;
-}
-
-nav a {
-    text-decoration: none; 
-    font-size: 1.25rem;
     color: var(--text-primary);
 }
