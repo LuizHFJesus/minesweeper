@@ -183,3 +183,63 @@ main {
     background-color: var(--bg-light);
     color: var(--text-primary);
 }
+
+/* Form component CSS styles */
+
+.form-container {
+    align-items: center;
+    background-color: var(--bg-light);
+    border-radius: var(--radius-xl);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 640px;
+    padding: 50px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.form-field {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 2;
+    gap: 5px;
+}
+
+.form-field.hug {
+    flex-grow: 0;
+    flex-shrink: 1;
+}
+
+.form-field-line {
+    display: flex;
+    flex-direction: row;
+    gap: 25px;
+}
+
+label {
+    color: var(--text-primary);
+    font-size: 1rem;
+    margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="tel"],
+input[type="date"] {
+    padding: 18px 30px;
+    border: 1px solid black;
+    border-radius: var(--radius-sm);
+    font-size: 1.125rem;
+    width: 100%;
+}
+.form-container a {
+    color: var(--text-primary);
+    font-size: 1.125rem;
+    text-decoration: none;
+}
