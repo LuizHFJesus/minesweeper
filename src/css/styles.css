@@ -28,6 +28,7 @@
 
 .column {
     flex-direction: column;
+    gap: 10px;
 }
 
 /* Text component CSS styles */
@@ -123,8 +124,13 @@ main {
 
 .container-header-text {
     display: flex;
-    gap: 10px;
+    gap: 40px;
     align-items: center;
+}
+
+.container-header-text h2 {
+    display: inline-block;
+    white-space: nowrap;
 }
 
 /* Image component CSS styles */
@@ -244,4 +250,147 @@ input[type="date"] {
     color: var(--text-primary);
     font-size: 1.125rem;
     text-decoration: none;
+}
+
+.card-dark{
+    width: 595px;
+    height: 285px;
+    padding: 50px;
+    gap: 0;
+    border-radius: 45px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #191A23;
+    background-color: #191A23;
+    justify-content: space-between;
+    border: 1px solid #191A23;
+}
+
+.card-grey{
+    width: 595px;
+    height: 285px;
+    padding: 50px;
+    gap: 0;
+    border-radius: 45px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #F3F3F3;
+    background-color: #F3F3F3;
+    justify-content: space-between;
+    border: 1px solid #191A23;
+}
+
+.card-grey-rank{
+    width: 1240px;
+    height: auto;
+    padding: 50px;
+    gap: 20px;
+    border-radius: 45px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #F3F3F3;
+    background-color: #F3F3F3;
+    justify-content: space-between;
+    border: 1px solid #191A23;
+    table-layout: auto;
+    border-collapse: collapse;
+}
+
+.card-section {
+    display: flex;
+    gap: 50px;
+    margin-top: 295;
+}
+
+.card-content {
+    display: flex;
+    justify-content: space-between;
+}
+
+.label-header-grey {
+    border-radius: 7px;
+    padding: 0px 7px 0px 7px;
+    background-color: #FFC92F;
+    width: fit-content;
+
+}
+
+.label-header-dark {
+    border-radius: 7px;
+    padding: 0px 7px 0px 7px;
+    background-color: #F3F3F3;
+    width: fit-content;
+}
+
+
+.card-content-text {
+    display: flex;
+    flex-direction: column;
+    gap: 50px
+}
+
+.icon {
+    width: 41px;
+    height: 41px;
+}
+
+.label-button {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.label-button-grey a {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 28px;
+    text-align: left;
+    text-decoration: none;
+    color: black;
+}
+
+.label-button-dark a {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 28px;
+    text-align: left;
+    text-decoration: none;
+    color: #F3F3F3;
+}
+
+.card-grey-rank th {
+    white-space: nowrap; 
+    padding: 15px;
+    text-align: center;
+}
+
+.card-grey-rank table {
+    width: 100%;
+}
+
+.rank-header {
+    border-bottom: 2px solid #000000;
+}
+
+thead th {
+    border-bottom: 2px solid black;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+tbody td {
+    border-bottom: 1px solid black;
+    padding: 20px;
+}
+
+tbody tr {
+    text-align: center;
 }
