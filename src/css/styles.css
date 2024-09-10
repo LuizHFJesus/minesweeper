@@ -107,6 +107,7 @@ main {
     align-items: center;
     justify-content: center;
     gap: 70px;
+    width: 100%;
 }
 
 .content-column {
@@ -199,9 +200,9 @@ nav a {
     display: flex;
     flex-direction: column;
     gap: 20px;
-    /* TODO: Change fixed width to be the max width */
-    width: 640px;
+    max-width: 640px;
     padding: 50px;
+    width: 100%;
 }
 
 form {
