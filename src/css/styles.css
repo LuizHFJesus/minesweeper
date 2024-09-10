@@ -26,11 +26,6 @@
     padding: unset;    
 }
 
-.column {
-    flex-direction: column;
-    gap: 10px;
-}
-
 /* Text component CSS styles */
 
 p {
@@ -129,9 +124,13 @@ main {
     align-items: center;
 }
 
+.container-header-text.column {
+    flex-direction: column;
+    gap: 10px;
+}
+
 .container-header-text h2 {
-    display: inline-block;
-    white-space: nowrap;
+    white-space: nowrap;
 }
 
 /* Image component CSS styles */
