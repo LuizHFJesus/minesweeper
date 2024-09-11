@@ -52,6 +52,17 @@ p, h1, h2, h3, h4 {
     color: var(--text-primary);
 }
 
+h3.header {
+    background-color: var(--primary);
+    border-radius: var(--radius-xs);
+    padding: 0px 7px;
+    width: fit-content;
+}
+
+h3.header.dark {
+    background-color: var(--bg-light);
+}
+
 /* Content container CSS styles */
 
 body {
@@ -190,6 +201,26 @@ nav a {
     color: var(--text-primary);
 }
 
+.label-btn {
+    align-items: center;
+    color: var(--text-primary);
+    cursor: pointer;
+    display: flex;
+    font-size: 1.25rem;
+    flex-wrap: wrap;
+    gap: 15px;
+    text-decoration: none;
+    transition: opacity 0.2s;
+}
+
+.label-btn:hover {
+    opacity: 0.85;
+}
+
+.label-btn.dark {
+    color: var(--text-light);
+}
+
 /* Form component CSS styles */
 
 .form-container {
@@ -252,33 +283,55 @@ input[type="date"] {
     text-decoration: none;
 }
 
-.card-dark{
-    width: 595px;
-    height: 285px;
-    padding: 50px;
-    gap: 0;
-    border-radius: 45px;
-    border-width: 1px;
-    border-style: solid;
-    border-color: #191A23;
-    background-color: #191A23;
-    justify-content: space-between;
-    border: 1px solid #191A23;
+/* Game selection card CSS styles */
+
+.container-cards {
+    display: grid;
+    flex-direction: row;
+    gap: 50px;
+    grid-template-columns: 1fr 1fr;
+    width: 100%;
 }
 
-.card-grey{
-    width: 595px;
-    height: 285px;
-    padding: 50px;
-    gap: 0;
-    border-radius: 45px;
-    border-width: 1px;
-    border-style: solid;
-    border-color: #F3F3F3;
-    background-color: #F3F3F3;
-    justify-content: space-between;
-    border: 1px solid #191A23;
+.container-cards .card-game-selection:nth-child(odd) {
+    justify-self: end;
 }
+
+.card-game-selection {
+    align-items: center;
+    background-color: var(--bg-light);
+    border: 1px solid var(--bg-dark);
+    border-radius: var(--radius-xl);
+    display: inline-flex;
+    gap: 20px;
+    justify-content: space-between;
+    max-width: 600px;
+    padding: 50px;
+    width: 100%;
+}
+
+.card-game-selection.dark {
+    background-color: var(--bg-dark);
+}
+
+.card-game-selection > img {
+    height: 185px;
+    width: 185px;
+}
+
+.card-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    height: 100%;
+    justify-content: space-between;
+}
+
+.card-content a + a {
+    margin-top: 15px;
+}
+
+/* History table CSS styles */
 
 .card-grey-rank{
     width: 1240px;
@@ -294,74 +347,6 @@ input[type="date"] {
     border: 1px solid #191A23;
     table-layout: auto;
     border-collapse: collapse;
-}
-
-.card-section {
-    display: flex;
-    gap: 50px;
-    margin-top: 295;
-}
-
-.card-content {
-    display: flex;
-    justify-content: space-between;
-}
-
-.label-header-grey {
-    border-radius: 7px;
-    padding: 0px 7px 0px 7px;
-    background-color: #FFC92F;
-    width: fit-content;
-
-}
-
-.label-header-dark {
-    border-radius: 7px;
-    padding: 0px 7px 0px 7px;
-    background-color: #F3F3F3;
-    width: fit-content;
-}
-
-
-.card-content-text {
-    display: flex;
-    flex-direction: column;
-    gap: 50px
-}
-
-.icon {
-    width: 41px;
-    height: 41px;
-}
-
-.label-button {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
-.label-button-grey a {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    font-size: 20px;
-    font-weight: 400;
-    line-height: 28px;
-    text-align: left;
-    text-decoration: none;
-    color: black;
-}
-
-.label-button-dark a {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    font-size: 20px;
-    font-weight: 400;
-    line-height: 28px;
-    text-align: left;
-    text-decoration: none;
-    color: #F3F3F3;
 }
 
 .card-grey-rank th {
