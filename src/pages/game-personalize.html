@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>CampoMinado!</title>
+    <link rel="icon" href="../images/ic-bomb-logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <header>
+        <div class="container-logo">
+            <img class="logo-icon" src="../images/ic-bomb-logo.png" alt="Bomba">
+            <h2>CampoMinado!</h2>
+        </div>
+
+        <nav class="menu">
+            <a href="game-selection.html"><b>Jogo</b></a>
+            <a href="ranking.html">Ranking geral</a>
+            <a href="">Editar perfil</a>
+            <a href="">Sobre</a>
+            <a href="../../index.html">Desconectar</a>
+        </nav>
+    </header>
+
+    <main>
+        <div class="container-header-text">
+            <h2>Escolha seu desafio</h2>
+            <p>Cada modo oferece desafios únicos, com variações na quantidade de campos e bombas. 
+                O modo Rivotril adiciona uma pressão extra com um tempo limite para finalizar a partida!</p>
+        </div>
+
+            <div class="card-game-selection column">
+                <h3 class="header">Personalize</h3>    
+
+                <form action="" method="post" class="form-field-line">
+                    <div class="form-field">
+                        <label for="email">Linhas</label>
+                        <input type="email" id="email" name="email" placeholder="00" required>
+                    </div>
+
+                    <div class="form-field">
+                        <label for="password">Colunas</label>
+                        <input type="password" id="password" name="password" placeholder="00" required>
+                    </div>   
+                    
+                    <div class="form-field">
+                        <label for="password">Bombas</label>
+                        <input type="password" id="password" name="password" placeholder="00" required>
+                    </div>                               
+                </form>    
+
+                <div class="row">
+                    <div class="card-content center">
+                        <div>
+                            <a href="" class="label-btn"> 
+                                <img class="icon" src="../images/ic-arrow-light.svg" alt="Seta">
+                                Modo clássico
+                            </a>
+        
+                            <a href="" class="label-btn"> 
+                                <img class="icon" src="../images/ic-arrow-light.svg" alt="Seta">
+                                Modo rivotril
+                            </a>
+                        </div> 
+                    </div>
+
+                    <img src="../images/ic-bomb-logo-nobg.png" alt="Bomba">
+                </div>
+            </div>
+
+        <div>
+            <a href="game-selection.html" class="label-btn"> 
+                <img class="icon" src="../images/ic-arrow-left-dark.svg" alt="Seta">
+                Voltar para a tela principal de seleção do modo de jogo
+            </a>
+        </div>
+
+    </main>
+
+    <footer>
+        <img class="logo-footer" src="../images/logo-unicamp.png" alt="Logo UNICAMP">
+        <h3>SI401 - Programação para a Web</h3>
+        <img class="logo-footer" src="../images/logo-ft.png" alt="Logo FT">
+    </footer>
+</body>
+</html>
