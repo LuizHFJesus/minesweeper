@@ -395,7 +395,7 @@ input {
     grid-template-rows: repeat(8, 50px);
 }
 
-.square {
+.field {
     display: flex;
     width: 50px;
     height: 50px;
@@ -408,29 +408,29 @@ input {
     user-select: none;
 }
 
-.square.open {
+.field.open {
     background-color: var(--field-open);
 }
 
-.square.open.variant {
+.field.open.variant {
     background-color: var(--field-open-variant);
 }
 
-.square.closed {
+.field.closed {
     cursor: pointer;
     background-color: var(--field-closed);
     transition: opacity 0.2s;
 }
 
-.square.closed:hover {
+.field.closed:hover {
     opacity: 0.85;
 }
 
-.square.closed.variant {
+.field.closed.variant {
     background-color: var(--field-closed-variant);
 }
 
-.square > img {
+.field > img {
     height: 30px;
     width:  30px;
 }
