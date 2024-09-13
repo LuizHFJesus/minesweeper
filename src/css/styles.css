@@ -455,49 +455,29 @@ align-content: center;
     color: var(--bg-pink);
 }
 
-.card-grey-rank{
-    width: 1240px;
-    height: auto;
-    padding: 50px;
-    gap: 20px;
-    border-radius: 45px;
-    border-width: 1px;
-    border-style: solid;
-    border-color: #F3F3F3;
-    background-color: #F3F3F3;
-    justify-content: space-between;
-    border: 1px solid #191A23;
-    table-layout: auto;
-    border-collapse: collapse;
-}
-
-.card-grey-rank th {
-    white-space: nowrap; 
-    padding: 15px;
-    text-align: center;
-}
-
-.card-grey-rank table {
-    width: 100%;
-}
-
-.rank-header {
-    border-bottom: 2px solid #000000;
-}
-
-thead th {
-    border-bottom: 2px solid black;
-}
+/* Table CSS styles */
 
 table {
+    background-color: var(--bg-light);
+    border: 1px solid var(--bg-dark);
     border-collapse: collapse;
+    border-radius: var(--radius-xl);
+    display: block;
+    gap: 20px;
+    padding: 50px;
 }
 
-tbody td {
+th {
+    border-bottom: 2px solid black;
+    padding: 15px;
+    text-align: center;
+    white-space: nowrap;
+}
+
+td {
     border-bottom: 1px solid black;
+    font-size: 1.25rem;
+    font-weight: bold;
     padding: 20px;
-}
-
-tbody tr {
     text-align: center;
 }
