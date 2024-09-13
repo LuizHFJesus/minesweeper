@@ -4,22 +4,24 @@
     --primary: #FFC92F;
     --bg-light: #F3F3F3;
     --bg-dark: #191A23;
-    --bg-blue: #1976D2;
-    --bg-green:#388E3C;
-    --bg-red: #EF5350;
-    --bg-purple: #78127d;
-    --bg-orange: #ff9d00;
-    --bg-ligth-blue: #00b2c6;
-    --bg-ligth-green: #48eb43;
-    --bg-pink: #ff00e6;
 
     --text-primary: black;
     --text-light: white;
     --disabled: #898989;
+    
     --field-closed: #7F72FC;
     --field-closed-variant: #6C6A7D;
     --field-open: #FCF972;
     --field-open-variant: #FCD772;
+
+    --blue: #1976D2;
+    --green:#388E3C;
+    --red: #EF5350;
+    --purple: #78127d;
+    --orange: #ff9d00;
+    --light-blue: #00b2c6;
+    --light-green: #48eb43;
+    --pink: #ff00e6;
 
     --radius-xs: 7px;
     --radius-sm: 14px;
@@ -160,6 +162,7 @@ main {
     justify-content: center;
     align-items: center;
     gap: 10px;
+    user-select: none;
 }
 
 .logo-icon {
@@ -206,7 +209,7 @@ main {
 }
 
 .filled-btn.red {
-    background-color: var(--bg-red);
+    background-color: var(--red);
     color: var(--text-light);
     border: 1px solid var(--bg-dark);
 }
@@ -383,8 +386,7 @@ input {
     padding: 20px 30px;
 }
 
-.game
-{
+.game-board {
     background-color: var(--bg-light);
     border: 3px solid var(--bg-dark);
     border-radius: 5px;
@@ -400,65 +402,65 @@ input {
     align-items: center;
     justify-items: center;
     justify-content: center;
-}
-
-.square a {
-    height: 30px;
-    width:  30px;
+    font-size: 1.875rem;
+    font-weight: bold;
+    text-align: center;
+    user-select: none;
 }
 
 .square.open {
     background-color: var(--field-open);
 }
 
-.square.open-variant {
+.square.open.variant {
     background-color: var(--field-open-variant);
 }
 
 .square.closed {
+    cursor: pointer;
     background-color: var(--field-closed);
+    transition: opacity 0.2s;
 }
 
-.square.closed-variant {
+.square.closed:hover {
+    opacity: 0.85;
+}
+
+.square.closed.variant {
     background-color: var(--field-closed-variant);
 }
 
-.game-icon {
+.square > img {
     height: 30px;
     width:  30px;
 }
 
-.game-text {
-    font-size: 30px;
-    font-weight: bold;
+.color-one {
+    color: var(--blue);
 }
 
-.game-text.color-one {
-    color: var(--bg-blue);
+.color-two {
+    color:var(--green);
+}
+.color-three {
+    color: var(--red);
+}
+.color-four {
+    color: var(--purple);
+}
+.color-five {
+    color: var(--orange);
+}
+.color-six {
+    color: var(--light-blue);
 }
 
-.game-text.color-two {
-    color:var(--bg-green);
-}
-.game-text.color-three {
-    color: var(--bg-red);
-}
-.game-text.color-four {
-    color: var(--bg-purple);
-}
-.game-text.color-five {
-    color: var(--bg-orange);
-}
-.game-text.color-six {
-    color: var(--bg-ligth-blue);
+.color-seven {
+    color: var(--light-green);
 }
 
-.game-text.color-seven {
-    color: var(--bg-ligth-green);
-}
-
-.game-text.color-eight {
-    color: var(--bg-pink);
+.color-eight {
+    color: var(--pink);
 }
 
 /* Table CSS styles */
