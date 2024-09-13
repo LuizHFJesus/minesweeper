@@ -4,6 +4,15 @@
     --primary: #FFC92F;
     --bg-light: #F3F3F3;
     --bg-dark: #191A23;
+    --bg-blue: #1976D2;
+    --bg-green:#388E3C;
+    --bg-red: #EF5350;
+    --bg-purple: #78127d;
+    --bg-orange: #ff9d00;
+    --bg-ligth-blue: #00b2c6;
+    --bg-ligth-green: #48eb43;
+    --bg-pink: #ff00e6;
+
     --text-primary: black;
     --text-light: white;
     --disabled: #898989;
@@ -195,6 +204,16 @@ main {
     color: var(--text-primary);
 }
 
+.filled-btn.red {
+    background-color: var(--bg-red);
+    color: var(--text-light);
+    border: 1px solid var(--bg-dark);
+}
+
+.filled-btn.light.border {
+    border: 1px solid var(--bg-dark);
+}
+
 nav a {
     text-decoration: none; 
     font-size: 1.25rem;
@@ -259,6 +278,10 @@ form {
     gap: 25px;
 }
 
+.form-field-line.space {
+    gap: 40px;
+}
+
 label {
     color: var(--text-primary);
     font-size: 1rem;
@@ -289,11 +312,11 @@ input {
     width: 100%;
 }
 
-.container-cards .card-game-selection:nth-child(odd) {
+.container-cards .card:nth-child(odd) {
     justify-self: end;
 }
 
-.card-game-selection {
+.card {
     align-items: center;
     background-color: var(--bg-light);
     border: 1px solid var(--bg-dark);
@@ -307,23 +330,25 @@ input {
     align-items: start;
 }
 
-.column
-{
+.card.actions { 
+    padding: 20px 30px;
+}
+
+.column {
     display: flex;
     flex-direction: column;
 }
 
-.card-game-selection.dark {
+.card.dark {
     background-color: var(--bg-dark);
 }
 
-.card-game-selection > img {
+.card > img {
     height: 185px;
     width: 185px;
 }
 
-.row
-{
+.row {
 display: flex;
 flex-direction: row;
 justify-content: space-between;
@@ -331,8 +356,7 @@ width: 100%;
 align-content: center;
 }
 
-.row > img
-{
+.row > img {
     height: 185px;
     width: 185px;
 }
@@ -345,8 +369,7 @@ align-content: center;
     justify-content: space-between;
 }
 
-.center
-{
+.center {
     justify-content: center;
 }
 
@@ -354,7 +377,83 @@ align-content: center;
     margin-top: 15px;
 }
 
-/* History table CSS styles */
+.game 
+{
+    background-color: var(--bg-light);
+    border: 3px solid var(--bg-dark);
+    border-radius: 5px;
+    display: grid;
+    grid-template-columns: repeat(8, 50px);
+    grid-template-rows: repeat(8, 50px);
+}
+
+.square {
+    display: flex;
+    width: 50px;
+    height: 50px;
+    align-items: center;
+    justify-items: center;
+    justify-content: center;
+}
+
+.square a {
+    height: 30px;
+    width:  30px;
+}
+
+.square.open {
+    background-color: var(--field-open);
+}
+
+.square.open-variant {
+    background-color: var(--field-open-variant);
+}
+
+.square.closed {
+    background-color: var(--field-closed);
+}
+
+.square.closed-variant {
+    background-color: var(--field-closed-variant);
+}
+
+.game-icon {
+    height: 30px;
+    width:  30px;
+}
+
+.game-text {
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.game-text.color-one {
+    color: var(--bg-blue);
+}
+
+.game-text.color-two {
+    color:var(--bg-green);
+}
+.game-text.color-three {
+    color: var(--bg-red);
+}
+.game-text.color-four {
+    color: var(--bg-purple);
+}
+.game-text.color-five {
+    color: var(--bg-orange);
+}
+.game-text.color-six {
+    color: var(--bg-ligth-blue);
+}
+
+.game-text.color-seven {
+    color: var(--bg-ligth-green);
+}
+
+.game-text.color-eight {
+    color: var(--bg-pink);
+}
 
 .card-grey-rank{
     width: 1240px;
