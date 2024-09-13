@@ -184,6 +184,7 @@ main {
     border-radius: var(--radius-sm);
     cursor: pointer;
     font-size: 1.25rem;
+    height: fit-content;
     padding: 20px 35px;
     text-align: center;
     text-decoration: none;
@@ -278,10 +279,6 @@ form {
     gap: 25px;
 }
 
-.form-field-line.space {
-    gap: 40px;
-}
-
 label {
     color: var(--text-primary);
     font-size: 1rem;
@@ -330,10 +327,6 @@ input {
     align-items: start;
 }
 
-.card.actions { 
-    padding: 20px 30px;
-}
-
 .column {
     display: flex;
     flex-direction: column;
@@ -348,15 +341,15 @@ input {
     width: 185px;
 }
 
-.row {
-display: flex;
-flex-direction: row;
-justify-content: space-between;
-width: 100%;
-align-content: center;
+.card-content-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    align-content: center;
 }
 
-.row > img {
+.card-content-row > img {
     height: 185px;
     width: 185px;
 }
@@ -377,7 +370,20 @@ align-content: center;
     margin-top: 15px;
 }
 
-.game 
+/* Game board CSS styles */
+
+.container-actions {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    gap: 40px;
+}
+
+.card.actions { 
+    padding: 20px 30px;
+}
+
+.game
 {
     background-color: var(--bg-light);
     border: 3px solid var(--bg-dark);
