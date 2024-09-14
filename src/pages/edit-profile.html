@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>CampoMinado!</title>
+    <link rel="icon" href="../images/ic-bomb-logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <header>
+        <div class="container-logo">
+            <img class="logo-icon" src="../images/ic-bomb-logo.png" alt="Bomba">
+            <h2>CampoMinado!</h2>
+        </div>
+        <nav class="menu">
+            <a href="game-selection.html"><b>Jogo</b></a>
+            <a href="ranking.html">Ranking geral</a>
+            <a href="">Editar perfil</a>
+            <a href="">Sobre</a>
+            <a href="../../index.html">Desconectar</a>
+        </nav>
+    </header>
+    <div class="container-header-text">
+        <h2>
+            Edite seu perfil
+        </h2>
+        <p>
+            Veja quem domina o campo! Aqui estão os jogadores que conquistaram os melhores tempos nos maiores desafios.
+        </p>
+    </div>
+    <div class="content-row">
+        <div class="form-container">
+            <form action="/register" method="post">
+                <div class="form-field">
+                    <label for="name">Nome completo*</label>
+                    <input type="text" id="name" name="name" placeholder="Nome completo" required>
+                </div>
+
+                <div class="form-field-line">
+                    <div class="form-field">
+                        <label for="cpf">CPF*</label>
+                        <input disabled type="text" id="cpf" name="cpf" placeholder="CPF" required>
+                    </div>
+
+                    <div class="form-field hug">
+                        <label for="dob">Data de nascimento*</label>
+                        <input type="date" id="dob" name="dob" required>
+                    </div>
+                </div>
+
+                <div class="form-field-line">
+                    <div class="form-field">
+                        <label for="username">Nome de usuário*</label>
+                        <input disabled type="text" id="username" name="username" placeholder="Nome de usuário" required>
+                    </div>
+
+                    <div class="form-field hug">
+                        <label for="tel">Telefone*</label>
+                        <input type="tel" id="tel" name="tel" placeholder="(00) 0 0000-0000" required>
+                    </div>
+                </div>
+
+                <div class="form-field">
+                    <label for="email">E-mail*</label>
+                    <input type="email" id="email" name="email" placeholder="E-mail" required>
+                </div>
+
+                <div class="form-field">
+                    <label for="password">Senha*</label>
+                    <input type="password" id="password" name="password" placeholder="Senha" required>
+                </div>                                    
+                
+                <a href="game-selection.html" class="filled-btn dark">Criar conta!</a>
+                <!-- <button type="submit" class="filled-btn dark">Criar conta!</button> -->
+            </form>
+
+            <a href="login.html">Já tem uma conta? Faça o login!</a>
+        </div>
+        
+        <img class="logo-content" src="../images/ic-bomb-logo.png" alt="Bomba">
+    </div>
+    <footer>
+        <img class="logo-footer" src="../images/logo-unicamp.png" alt="Logo UNICAMP">
+        <h3>SI401 - Programação para a Web</h3>
+        <img class="logo-footer" src="../images/logo-ft.png" alt="Logo FT">
+    </footer>
+</body>
+</html>
