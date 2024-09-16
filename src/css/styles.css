@@ -296,6 +296,12 @@ input {
     width: 100%;
 }
 
+input:disabled {
+    background-color: white;
+    border: 1px solid var(--disabled);
+    color: var(--disabled);
+}
+
 .form-container a {
     color: var(--text-primary);
     font-size: 1.125rem;
