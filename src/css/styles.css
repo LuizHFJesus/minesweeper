@@ -489,3 +489,70 @@ td {
     padding: 20px;
     text-align: center;
 }
+
+.card-about{
+    align-items: center;
+    color: var(--text-light);
+    flex-direction: row;
+    background-color: var(--bg-dark);
+    border: 1px solid var(--bg-dark);
+    border-radius: var(--radius-xl);
+    display: flex;
+    gap: 100px;
+    padding: 50px; 
+    width: 80%; 
+    align-items: start;
+    font-size:1.150rem;
+    /* margin-left: 25%; */
+}
+
+.card-authors{
+    align-items: center;
+    background-color: var(--bg-light);
+    border: 1px solid var(--bg-dark);
+    border-radius: var(--radius-xl);
+    gap: 30px;
+    max-width: 400px;
+    padding: 45px;
+    width: 100%;
+    align-items: start;
+    align-content: center;
+}
+.linha{
+    border-right: 2px solid grey;
+    padding-right: 100px;
+
+}
+
+.separador{
+    border-top: 2px solid black;
+    width: 300px;
+    
+}
+
+.authors-img{
+    height: 75px;
+    width: 75px;
+    border-radius: 100%;
+    margin-bottom: 20px;
+}
+
+.alinhador{
+    grid-template-columns: 0.5fr 1.5fr !important;
+    margin-left: 50%;
+}
+
+.cont{
+    display:flex;
+    flex-direction: row;
+    align-items: start;
+}
+
+.name-authors{
+   margin-left: 40px;
+    margin-top: 8px;
+}
+
+.p-authors{
+    margin-top: 20px;
+}
