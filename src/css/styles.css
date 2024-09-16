@@ -496,69 +496,48 @@ td {
     text-align: center;
 }
 
-.card-about{
-    align-items: center;
-    color: var(--text-light);
-    flex-direction: row;
+/* Card about CSS styles */
+
+.card.about{
+    color: white;
     background-color: var(--bg-dark);
-    border: 1px solid var(--bg-dark);
-    border-radius: var(--radius-xl);
-    display: flex;
-    gap: 100px;
-    padding: 50px; 
-    width: 80%; 
-    align-items: start;
-    font-size:1.150rem;
-    /* margin-left: 25%; */
+    max-width: 1150px;
+    gap: 50px;
 }
 
-.card-authors{
-    align-items: center;
-    background-color: var(--bg-light);
-    border: 1px solid var(--bg-dark);
-    border-radius: var(--radius-xl);
+.card.about p {
+    color: white;
+}
+
+.card.author {
+    display: flex;
+    flex-direction: column;
     gap: 30px;
     max-width: 400px;
-    padding: 45px;
+    padding: 40px 35px;
+}
+
+.vertical-divider{
+    background-color: white; 
+    height: 100%;
+    width: 1px;
+}
+
+.horizontal-divider {
+    background-color: black; 
     width: 100%;
-    align-items: start;
-    align-content: center;
-}
-.linha{
-    border-right: 2px solid grey;
-    padding-right: 100px;
-
+    height: 1px;
 }
 
-.separador{
-    border-top: 2px solid black;
-    width: 300px;
-    
+.content-author {
+    display:flex;
+    flex-direction: row;
+    align-items: end;
+    gap: 20px;
 }
 
-.authors-img{
+.content-author img{
     height: 75px;
     width: 75px;
     border-radius: 100%;
-    margin-bottom: 20px;
-}
-
-.alinhador{
-    grid-template-columns: 0.5fr 1.5fr !important;
-    margin-left: 50%;
-}
-
-.cont{
-    display:flex;
-    flex-direction: row;
-    align-items: start;
-}
-
-.name-authors{
-   margin-left: 40px;
-    margin-top: 8px;
-}
-
-.p-authors{
-    margin-top: 20px;
 }
