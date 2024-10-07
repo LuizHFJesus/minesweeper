@@ -5,7 +5,7 @@ export function getCurrentUser() {
 }
 
 export function setCurrentUser(user) {
-    localStorage.setItem('currentUser', JSON.stringify(user));
+    localStorage.setItem('currentUser', JSON.stringify(user.removeItem('password')));
 }
 
 export function removeCurrentUser() {
