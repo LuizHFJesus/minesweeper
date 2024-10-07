@@ -1,11 +1,11 @@
 'use strict';
 
-import { setCurrentUser, getUsers, saveUsers, findUser } from './user-utils.js';
+import { setCurrentUser, getUsers, saveUsers, findUser, hashPassword } from './user-utils.js';
 import { isValidCpf, isValidUsername, isValidPassword } from './user-form-utils.js';
 
 const userRegisterForm = document.getElementById('user-register');
 
-function handleUserRegister(event) {
+async function handleUserRegister(event) {
     event.preventDefault();
 
     const form = event.target;
@@ -50,6 +50,9 @@ function handleUserRegister(event) {
         alert('Este e-mail já está em uso!');
         return;
     }
+
+    const hashedPassword = await hashPassword(user.password);
+    user.password = hashedPassword;
 
     users.push(user);
     saveUsers(users);

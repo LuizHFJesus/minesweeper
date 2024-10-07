@@ -5,7 +5,7 @@ export function getCurrentUser() {
 }
 
 export function setCurrentUser(user) {
-    localStorage.setItem('currentUser', JSON.stringify(user.removeItem('password')));
+    localStorage.setItem('currentUser', JSON.stringify(user));
 }
 
 export function removeCurrentUser() {
@@ -27,4 +27,19 @@ export function findUser(cpfOrEmailOrUsername) {
         user.username === cpfOrEmailOrUsername ||
         user.email === cpfOrEmailOrUsername
     );
+}
+
+export async function hashPassword(password) {
+    const encoder = new TextEncoder();
+    const data = encoder.encode(password);
+    const hash = await crypto.subtle.digest('SHA-256', data);
+    return hexString(hash);
+}
+
+function hexString(buffer) {
+    const byteArray = new Uint8Array(buffer);
+    const hexCodes = [...byteArray].map(value => {
+        return value.toString(16).padStart(2, '0');
+    });
+    return hexCodes.join('');
 }

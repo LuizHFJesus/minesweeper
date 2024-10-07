@@ -1,10 +1,10 @@
 'use strict';
 
-import { setCurrentUser, findUser } from './user-utils.js';
+import { setCurrentUser, findUser, hashPassword } from './user-utils.js';
 
 const userLoginForm = document.getElementById('user-login');
 
-export function handleUserLogin(event) {
+export async function handleUserLogin(event) {
     event.preventDefault();
 
     const form = event.target;
@@ -12,7 +12,8 @@ export function handleUserLogin(event) {
     const password = form.password.value.trim();
 
     const user = findUser(emailOrUsername);
-    if (!user || user.password !== password) {
+    const hashedPassword = await hashPassword(password);
+    if (!user || user.password !== hashedPassword) {
         alert("E-mail, nome de usuário ou senha inválidos!");
         return;
     }
