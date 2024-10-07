@@ -22,7 +22,7 @@
 
         <div class="content-row">
             <div class="form-container">
-                <form action="/register" method="post">
+                <form id="user-register">
                     <div class="form-field">
                         <label for="name">Nome completo*</label>
                         <input type="text" id="name" name="name" placeholder="Nome completo" required>
@@ -62,8 +62,7 @@
                         <input type="password" id="password" name="password" placeholder="Senha" required>
                     </div>                                    
                     
-                    <a href="game-selection.html" class="filled-btn dark">Criar conta!</a>
-                    <!-- <button type="submit" class="filled-btn dark">Criar conta!</button> -->
+                    <button type="submit" class="filled-btn dark">Criar conta!</button>
                 </form>
 
                 <a href="login.html">Já tem uma conta? Faça o login!</a>
@@ -78,5 +77,9 @@
         <h3>SI401 - Programação para a Web</h3>
         <img class="logo-footer" src="../images/logo-ft.png" alt="Logo FT">
     </footer>
+
+    <script type="module" src="../javascript/user-utils.js"></script>
+    <script type="module" src="../javascript/user-form-utils.js"></script>
+    <script type="module" src="../javascript/user-register.js"></script>
 </body>
 </html>
