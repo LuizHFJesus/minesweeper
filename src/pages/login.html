@@ -24,19 +24,18 @@
             <img class="logo-content" src="../images/ic-bomb-logo.png" alt="Bomba">
 
             <div class="form-container">
-                <form action="/login" method="post">
+                <form id="user-login">
                     <div class="form-field">
-                        <label for="email">E-mail</label>
-                        <input type="email" id="email" name="email" placeholder="E-mail" required>
+                        <label for="emailOrUsername">E-mail ou nome de usuário</label>
+                        <input type="text" id="emailOrUsername" name="emailOrUsername" placeholder="E-mail ou nome de usuário" required>
                     </div>
 
                     <div class="form-field">
                         <label for="password">Senha</label>
                         <input type="password" id="password" name="password" placeholder="Senha" required>
                     </div>                                    
-                    
-                    <a href="game-selection.html" class="filled-btn dark">Entrar na conta!</a>
-                    <!-- <button type="submit" class="filled-btn dark">Entrar na conta!</button> -->
+
+                    <button type="submit" class="filled-btn dark">Entrar na conta!</button>
                 </form>
 
                 <a href="register.html">Ainda não tem uma conta? Cadastre-se!</a>
@@ -49,5 +48,8 @@
         <h3>SI401 - Programação para a Web</h3>
         <img class="logo-footer" src="../images/logo-ft.png" alt="Logo FT">
     </footer>
+
+    <script type="module" src="../javascript/user-utils.js"></script>
+    <script type="module" src="../javascript/user-login.js"></script>
 </body>
 </html>
