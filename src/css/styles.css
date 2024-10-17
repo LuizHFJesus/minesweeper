@@ -375,7 +375,7 @@ input:disabled {
     justify-content: center;
 }
 
-.card-content a + a {
+.card-content button + button {
     margin-top: 15px;
 }
 
