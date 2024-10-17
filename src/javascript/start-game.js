@@ -20,7 +20,6 @@ startBegginerClassicGame.addEventListener('click', (event) => {
     const timeLimit = null; 
     const timeFinished = 0; 
 
-    console.log('iniicando criacao');
     criarGameData(qtdLines, qtdColumns, qtdBombs, mode, datetime, timeLimit, timeFinished);
     window.location.href = 'game.html'
 });
