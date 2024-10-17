@@ -5,11 +5,9 @@ import { getCurrentUser } from './user-utils.js';
 var id_partida = 0;
 
 export function criarGameData(qtdLines, qtdColumns, qtdBombs, mode, datetime, timeLimit, timeFinished) {
-    console.log('iniicando criar gamedadta');
 
     const currentUser = getCurrentUser();
 
-    console.log('corrent user =' + currentUser);
 
     id_partida++; 
     
