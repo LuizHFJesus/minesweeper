@@ -117,8 +117,8 @@ function initializeGame() {
         window.location.href = 'game-selection.html';
     }
 
-    fieldsLabel.textContent = `${game.rows * game.cols}`;
-    bombsLabel.textContent = game.bombs;
+    fieldsLabel.textContent = `${game.rows * game.cols}`.padStart(4, '0');
+    bombsLabel.textContent = `${game.bombs}`.padStart(4, '0');
 
     if (game.timeLimit) {
         const minutes = Math.floor(game.timeLimit / 60);
@@ -227,11 +227,11 @@ function handledFieldRightClick(e, row, col) {
         if (gameBoard[row][col].isFlagged) {
             gameBoard[row][col].isFlagged = false;
             field.innerHTML = '';
-            bombsLabel.textContent = flagsCount + 1;
+            bombsLabel.textContent = `${flagsCount + 1}`.padStart(4, '0');
         } else if (flagsCount > 0) {
             gameBoard[row][col].isFlagged = true;
             field.innerHTML = `<img src="../images/ic-field-flag.png" alt="Bandeira">`;
-            bombsLabel.textContent = flagsCount - 1;
+            bombsLabel.textContent = `${flagsCount - 1}`.padStart(4, '0');
         }
     }
 }
