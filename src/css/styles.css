@@ -37,6 +37,10 @@
     padding: unset;    
 }
 
+.hide {
+    display: none;
+}
+
 /* Text component CSS styles */
 
 p {
@@ -377,10 +381,9 @@ input:disabled {
 
 .card-content button + button {
     margin-top: 15px;
-    border: none;
 }
 
-.card-content button {
+button {
     border: none;
     background: none;
 }
@@ -398,13 +401,11 @@ input:disabled {
     padding: 20px 30px;
 }
 
-.game-board {
+#game-board {
     background-color: var(--bg-light);
     border: 3px solid var(--bg-dark);
     border-radius: 5px;
     display: grid;
-    grid-template-columns: repeat(8, 50px);
-    grid-template-rows: repeat(8, 50px);
 }
 
 .field {
@@ -447,31 +448,31 @@ input:disabled {
     width:  30px;
 }
 
-.color-one {
+.color-1 {
     color: var(--blue);
 }
 
-.color-two {
+.color-2 {
     color:var(--green);
 }
-.color-three {
+.color-3 {
     color: var(--red);
 }
-.color-four {
+.color-4 {
     color: var(--purple);
 }
-.color-five {
+.color-5 {
     color: var(--orange);
 }
-.color-six {
+.color-6 {
     color: var(--light-blue);
 }
 
-.color-seven {
+.color-7 {
     color: var(--light-green);
 }
 
-.color-eight {
+.color-8 {
     color: var(--pink);
 }
 

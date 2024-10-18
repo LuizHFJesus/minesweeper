@@ -27,123 +27,32 @@
             <div class="card actions">
                 <div>
                     <p>Bombas</p>
-                    <h3 class="header">0008</h3>    
+                    <h3 id="bombs-label" class="header">0000</h3>    
                 </div>
                 <div>
                     <p>Campos</p>
-                    <h3 class="header">0010</h3>
+                    <h3 id="fields-label" class="header">0000</h3>
                 </div>
                 <div>
                     <p>Tempo</p>
-                    <h3 class="header">12:24</h3>    
+                    <h3 id="time-label" class="header">00:00</h3>    
                 </div>
             </div>
 
             <div class="card actions">
-                <a href="" class="label-btn"> 
-                    <img class="icon" src="../images/ic-play.png" alt="Play">
-                </a>
-
-                <a href="" class="label-btn"> 
-                    <img class="icon" src="../images/ic-pause.png" alt="Pause">
-                </a>
-
-                <a href="" class="label-btn"> 
+                <button id="reset-btn" class="label-btn hide"> 
                     <img class="icon" src="../images/ic-refresh.png" alt="Restart">
-                </a>
+                </button>
 
-                <a href="game-selection.html" class="label-btn"> 
+                <button id="finish-btn" class="label-btn hide"> 
                     <img class="icon" src="../images/ic-cancel.png" alt="Desistir">
-                </a>
+                </button>
             </div>
             
-            <a href="" class="filled-btn light border">Trapaça</a>
-
-            <a href="" class="filled-btn red">Trapaça</a>
+            <button id="cheat-btn" class="filled-btn light border">Trapaça</button>
         </div>
 
-        <div class="game-board">
-            <div class="field open color-one">1</div>
-            <div class="field open variant color-two">2</div>
-            <div class="field open color-three">3</div>
-            <div class="field open variant color-four">4</div>
-            <div class="field open color-five">5 </div>
-            <div class="field open variant color-six">6</div>
-            <div class="field open color-seven">7</div>
-            <div class="field open variant color-eight">8</div>
-
-            <div class="field open variant"><img src="../images/ic-field-bomb.png" alt="Bomba"></div>
-            <div class="field open"><img src="../images/ic-field-explode.png" alt="Explosão"></div>
-            <div class="field closed"><img src="../images/ic-field-flag.png" alt="Bandeira"></div>
-            <div class="field closed variant"><img src="../images/ic-field-flag.png" alt="Bandeira"></div>
-            <div class="field closed"></div>
-            <div class="field closed variant"></div>
-            <div class="field closed"></div>
-            <div class="field closed variant"></div>
-
-            <div class="field closed variant"></div>
-            <div class="field closed"></div>
-            <div class="field closed variant"></div>
-            <div class="field closed"></div>
-            <div class="field closed variant"></div>
-            <div class="field closed"></div>
-            <div class="field closed variant"></div>
-            <div class="field closed"></div>
-
-            <div class="field closed"></div>
-            <div class="field closed variant"></div>
-            <div class="field closed"></div>
-            <div class="field closed variant"></div>
-            <div class="field closed"></div>
-            <div class="field closed variant"></div>
-            <div class="field closed"></div>
-            <div class="field closed variant"></div>
-
-            <div class="field closed variant"></div>
-            <div class="field closed"></div>
-            <div class="field closed variant"></div>
-            <div class="field closed"></div>
-            <div class="field closed variant"></div>
-            <div class="field closed"></div>
-            <div class="field closed variant"></div>
-            <div class="field closed"></div>
-    
-            <div class="field closed"></div>
-            <div class="field closed variant"></div>
-            <div class="field closed"></div>
-            <div class="field closed variant"></div>
-            <div class="field closed"></div>
-            <div class="field closed variant"></div>
-            <div class="field closed"></div>
-            <div class="field closed variant"></div>
-
-            <div class="field closed variant"></div>
-            <div class="field closed"></div>
-            <div class="field closed variant"></div>
-            <div class="field closed"></div>
-            <div class="field closed variant"></div>
-            <div class="field closed"></div>
-            <div class="field closed variant"></div>
-            <div class="field closed"></div>
-    
-            <div class="field closed"></div>
-            <div class="field closed variant"></div>
-            <div class="field closed"></div>
-            <div class="field closed variant"></div>
-            <div class="field closed"></div>
-            <div class="field closed variant"></div>
-            <div class="field closed"></div>
-            <div class="field closed variant"></div>
-
-            <div class="field closed variant"></div>
-            <div class="field closed"></div>
-            <div class="field closed variant"></div>
-            <div class="field closed"></div>
-            <div class="field closed variant"></div>
-            <div class="field closed"></div>
-            <div class="field closed variant"></div>
-            <div class="field closed"></div>
-        </div>  
+        <div id="game-board"></div>  
     </main>
 
     <footer>
@@ -152,5 +61,8 @@
         <img class="logo-footer" src="../images/logo-ft.png" alt="Logo FT">
     </footer>
 
+    <script type="module" src="../javascript/game-utils.js"></script>
+    <script type="module" src="../javascript/user-utils.js"></script>
+    <script type="module" src="../javascript/game.js"></script>
 </body>
 </html>
