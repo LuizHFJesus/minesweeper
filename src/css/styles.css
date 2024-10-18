@@ -377,6 +377,12 @@ input:disabled {
 
 .card-content button + button {
     margin-top: 15px;
+    border: none;
+}
+
+.card-content button {
+    border: none;
+    background: none;
 }
 
 /* Game board CSS styles */

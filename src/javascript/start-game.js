@@ -12,10 +12,10 @@ const startAdvancedRivotrilGame = document.getElementById('advanced-rivotril');
 startBegginerClassicGame.addEventListener('click', (event) => {
     event.preventDefault(); 
 
-    const qtdLines = 10; 
+    const qtdLines = 8; 
     const qtdColumns = 10; 
-    const qtdBombs = 20; 
-    const mode = 'normal'; 
+    const qtdBombs = 10; 
+    const mode = 'classico'; 
     const datetime = new Date(); 
     const timeLimit = null; 
     const timeFinished = 0; 
@@ -27,12 +27,12 @@ startBegginerClassicGame.addEventListener('click', (event) => {
 startBegginerRivotrilGame.addEventListener('click', (event) => {
     event.preventDefault(); 
 
-    const qtdLines = 10; 
+    const qtdLines = 8; 
     const qtdColumns = 10; 
-    const qtdBombs = 20; 
-    const mode = 'normal'; 
+    const qtdBombs = 10; 
+    const mode = 'rivotril'; 
     const datetime = new Date(); 
-    const timeLimit = 60; 
+    const timeLimit = 120; 
     const timeFinished = 0; 
 
     criarGameData(qtdLines, qtdColumns, qtdBombs, mode, datetime, timeLimit, timeFinished);
@@ -42,12 +42,12 @@ startBegginerRivotrilGame.addEventListener('click', (event) => {
 startIntermediateClassicGame.addEventListener('click', (event) => {
     event.preventDefault(); 
 
-    const qtdLines = 10; 
-    const qtdColumns = 10; 
-    const qtdBombs = 20; 
-    const mode = 'normal'; 
+    const qtdLines = 15; 
+    const qtdColumns = 20; 
+    const qtdBombs = 40; 
+    const mode = 'classico'; 
     const datetime = new Date(); 
-    const timeLimit = 60; 
+    const timeLimit = null; 
     const timeFinished = 0; 
 
     criarGameData(qtdLines, qtdColumns, qtdBombs, mode, datetime, timeLimit, timeFinished);
@@ -57,12 +57,12 @@ startIntermediateClassicGame.addEventListener('click', (event) => {
 startIntermediateRivotrilGame.addEventListener('click', (event) => {
     event.preventDefault(); 
 
-    const qtdLines = 10; 
-    const qtdColumns = 10; 
-    const qtdBombs = 20; 
-    const mode = 'normal'; 
+    const qtdLines = 15; 
+    const qtdColumns = 20; 
+    const qtdBombs = 40;  
+    const mode = 'rivotril'; 
     const datetime = new Date(); 
-    const timeLimit = 60; 
+    const timeLimit = 120; 
     const timeFinished = 0; 
 
     criarGameData(qtdLines, qtdColumns, qtdBombs, mode, datetime, timeLimit, timeFinished);
@@ -72,12 +72,12 @@ startIntermediateRivotrilGame.addEventListener('click', (event) => {
 startAdvancedClassicGame.addEventListener('click', (event) => {
     event.preventDefault(); 
 
-    const qtdLines = 10; 
-    const qtdColumns = 10; 
-    const qtdBombs = 20; 
-    const mode = 'normal'; 
+    const qtdLines = 20; 
+    const qtdColumns = 25; 
+    const qtdBombs = 100; 
+    const mode = 'classico'; 
     const datetime = new Date(); 
-    const timeLimit = 60; 
+    const timeLimit = null; 
     const timeFinished = 0; 
 
     criarGameData(qtdLines, qtdColumns, qtdBombs, mode, datetime, timeLimit, timeFinished);
@@ -87,12 +87,12 @@ startAdvancedClassicGame.addEventListener('click', (event) => {
 startAdvancedRivotrilGame.addEventListener('click', (event) => {
     event.preventDefault(); 
 
-    const qtdLines = 10; 
-    const qtdColumns = 10; 
-    const qtdBombs = 20; 
-    const mode = 'normal'; 
+    const qtdLines = 20; 
+    const qtdColumns = 25; 
+    const qtdBombs = 100; 
+    const mode = 'rivotril'; 
     const datetime = new Date(); 
-    const timeLimit = 60; 
+    const timeLimit = 180; 
     const timeFinished = 0; 
 
     criarGameData(qtdLines, qtdColumns, qtdBombs, mode, datetime, timeLimit, timeFinished);
