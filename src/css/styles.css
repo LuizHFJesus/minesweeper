@@ -78,6 +78,10 @@ h3.header.dark {
     background-color: var(--bg-light);
 }
 
+.numeric {
+    font-variant-numeric: tabular-nums;
+}
+
 /* Content container CSS styles */
 
 body {
