@@ -12,89 +12,77 @@ const startAdvancedRivotrilGame = document.getElementById('advanced-rivotril');
 startBegginerClassicGame.addEventListener('click', (event) => {
     event.preventDefault(); 
 
-    const qtdLines = 8; 
-    const qtdColumns = 10; 
-    const qtdBombs = 10; 
+    const rows = 8; 
+    const cols = 10; 
+    const bombs = 10; 
     const mode = 'classico'; 
-    const datetime = new Date(); 
     const timeLimit = null; 
-    const timeFinished = 0; 
 
-    criarGameData(qtdLines, qtdColumns, qtdBombs, mode, datetime, timeLimit, timeFinished);
+    criarGameData(rows, cols, bombs, mode, timeLimit);
     window.location.href = 'game.html'
 });
 
 startBegginerRivotrilGame.addEventListener('click', (event) => {
     event.preventDefault(); 
 
-    const qtdLines = 8; 
-    const qtdColumns = 10; 
-    const qtdBombs = 10; 
+    const rows = 8; 
+    const cols = 10; 
+    const bombs = 10; 
     const mode = 'rivotril'; 
-    const datetime = new Date(); 
     const timeLimit = 120; 
-    const timeFinished = 0; 
 
-    criarGameData(qtdLines, qtdColumns, qtdBombs, mode, datetime, timeLimit, timeFinished);
+    criarGameData(rows, cols, bombs, mode, timeLimit);
     window.location.href = 'game.html'
 });
 
 startIntermediateClassicGame.addEventListener('click', (event) => {
     event.preventDefault(); 
 
-    const qtdLines = 15; 
-    const qtdColumns = 20; 
-    const qtdBombs = 40; 
+    const rows = 15; 
+    const cols = 20; 
+    const bombs = 40; 
     const mode = 'classico'; 
-    const datetime = new Date(); 
     const timeLimit = null; 
-    const timeFinished = 0; 
 
-    criarGameData(qtdLines, qtdColumns, qtdBombs, mode, datetime, timeLimit, timeFinished);
+    criarGameData(rows, cols, bombs, mode, timeLimit);
     window.location.href = 'game.html'
 });
 
 startIntermediateRivotrilGame.addEventListener('click', (event) => {
     event.preventDefault(); 
 
-    const qtdLines = 15; 
-    const qtdColumns = 20; 
-    const qtdBombs = 40;  
+    const rows = 15; 
+    const cols = 20; 
+    const bombs = 40;  
     const mode = 'rivotril'; 
-    const datetime = new Date(); 
     const timeLimit = 120; 
-    const timeFinished = 0; 
 
-    criarGameData(qtdLines, qtdColumns, qtdBombs, mode, datetime, timeLimit, timeFinished);
+    criarGameData(rows, cols, bombs, mode, timeLimit);
     window.location.href = 'game.html'
 });
 
 startAdvancedClassicGame.addEventListener('click', (event) => {
     event.preventDefault(); 
 
-    const qtdLines = 20; 
-    const qtdColumns = 25; 
-    const qtdBombs = 100; 
+    const rows = 20; 
+    const cols = 25; 
+    const bombs = 100; 
     const mode = 'classico'; 
-    const datetime = new Date(); 
     const timeLimit = null; 
-    const timeFinished = 0; 
 
-    criarGameData(qtdLines, qtdColumns, qtdBombs, mode, datetime, timeLimit, timeFinished);
+    criarGameData(rows, cols, bombs, mode, timeLimit);
     window.location.href = 'game.html'
 });
 
 startAdvancedRivotrilGame.addEventListener('click', (event) => {
     event.preventDefault(); 
 
-    const qtdLines = 20; 
-    const qtdColumns = 25; 
-    const qtdBombs = 100; 
+    const rows = 20; 
+    const cols = 25; 
+    const bombs = 100; 
     const mode = 'rivotril'; 
-    const datetime = new Date(); 
     const timeLimit = 180; 
-    const timeFinished = 0; 
 
-    criarGameData(qtdLines, qtdColumns, qtdBombs, mode, datetime, timeLimit, timeFinished);
+    criarGameData(rows, cols, bombs, mode, timeLimit);
     window.location.href = 'game.html'
 });

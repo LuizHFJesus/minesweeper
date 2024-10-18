@@ -2,28 +2,26 @@
 
 import { getCurrentUser } from './user-utils.js';
 
-export function criarGameData(qtdLines, qtdColumns, qtdBombs, mode, datetime, timeLimit, timeFinished) {
-
+export function criarGameData(rows, cols, bombs, mode, timeLimit) {
     const currentUser = getCurrentUser();
-
-    const id_partida = incrementGameId();
+    const idPartida = incrementGameId();
 
     var gameData = {
-        id: id_partida,
+        id: idPartida,
         username: currentUser.username,
-        qtdLines: qtdLines,
-        qtdColumns: qtdColumns,
-        qtdBombs: qtdBombs,
+        rows: rows,
+        cols: cols,
+        bombs: bombs,
         mode: mode,
-        datetime: datetime,
         timeLimit: timeLimit,
-        timeFinished: timeFinished
+        datetime: null,
+        time: null,
+        won: null
     };
 
     const games = getGames();
 
     setCurrentGame(gameData);
-    finalizarJogo(55); //mover para o lugar certo depois
 }
 
 export function saveGames(games) {
@@ -60,10 +58,12 @@ export function removeGameById(id) {
     saveGames(games);
 }
 
-export function finalizarJogo(timeFinished) {
+export function finishGame(won, time) {
     let currentGame = getCurrentGame();
-    
-    currentGame.timeFinished = timeFinished;
+
+    currentGame.won = won;
+    currentGame.time = time;
+    currentGame.datetime = new Date();
     
     let games = getGames(); 
     games.push(currentGame);
