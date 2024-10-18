@@ -83,9 +83,6 @@ function handleCheatButton() {
                     } else if (gameBoard[i][j].bombCount > 0) {
                         field.classList.remove(`color-${gameBoard[i][j].bombCount}`);
                     }
-
-                    field.addEventListener('click', () => handleFieldClick(row, col));
-                    field.addEventListener('contextmenu', (e) => handledFieldRightClick(e, row, col));
                 }
             }
         }
@@ -107,9 +104,6 @@ function handleCheatButton() {
                         field.textContent = gameBoard[i][j].bombCount;
                         field.classList.add(`color-${gameBoard[i][j].bombCount}`);
                     }
-
-                    field.removeEventListener('click', handleFieldClick);
-                    field.removeEventListener('contextmenu', handledFieldRightClick);
                 }
             }
         }
@@ -223,32 +217,28 @@ function isRightMouseClick(e) {
 }
 
 function handledFieldRightClick(e, row, col) {
-    if (isGameOver || gameBoard[row][col].isRevealed) return;
+    if (isGameOver || gameBoard[row][col].isRevealed || isCheatEnabled) return;
     if (!isGameRunning) startGame();
 
     if (isRightMouseClick(e)) {
-        toggleFieldFlag(row, col);
-    }
-}
+        const field = document.getElementById(`field-${row}-${col}`);
+        const flagsCount = parseInt(bombsLabel.textContent);
 
-function toggleFieldFlag(row, col) {
-    const field = document.getElementById(`field-${row}-${col}`);
-    const flagsCount = parseInt(bombsLabel.textContent);
-
-    if (gameBoard[row][col].isFlagged) {
-        gameBoard[row][col].isFlagged = false;
-        field.innerHTML = '';
-        bombsLabel.textContent = flagsCount + 1;
-    } else if (flagsCount > 0) {
-        gameBoard[row][col].isFlagged = true;
-        field.innerHTML = `<img src="../images/ic-field-flag.png" alt="Bandeira">`;
-        bombsLabel.textContent = flagsCount - 1;
+        if (gameBoard[row][col].isFlagged) {
+            gameBoard[row][col].isFlagged = false;
+            field.innerHTML = '';
+            bombsLabel.textContent = flagsCount + 1;
+        } else if (flagsCount > 0) {
+            gameBoard[row][col].isFlagged = true;
+            field.innerHTML = `<img src="../images/ic-field-flag.png" alt="Bandeira">`;
+            bombsLabel.textContent = flagsCount - 1;
+        }
     }
 }
 
 function handleFieldClick(row, col) {
     const field = gameBoard[row][col];
-    if (isGameOver || field.isRevealed || field.isFlagged) return;
+    if (isGameOver || field.isRevealed || field.isFlagged || isCheatEnabled) return;
     if (!isGameRunning) startGame();
 
     revealField(row, col, true);
