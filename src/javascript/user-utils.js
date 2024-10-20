@@ -29,6 +29,13 @@ export function findUser(cpfOrEmailOrUsername) {
     );
 }
 
+export function updateUser(updatedUser) {
+    const users = getUsers();
+    const index = users.findIndex(user => user.username === updatedUser.username);
+    users[index] = updatedUser;
+    saveUsers(users);
+}
+
 export async function hashPassword(password) {
     const encoder = new TextEncoder();
     const data = encoder.encode(password);

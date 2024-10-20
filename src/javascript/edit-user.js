@@ -1,10 +1,15 @@
 'use strict';
 
-import { getCurrentUser } from './user-utils.js';
-import { isValidPassword } from './user-form-utils.js';
+import { getCurrentUser, setCurrentUser, updateUser } from './user-utils.js';
+import { hashPassword } from './user-utils.js';
+
+const userEditForm = document.getElementById("edit-profile-form");
+
+let currentUser = null;
 
 document.addEventListener('DOMContentLoaded', () => {
-    const currentUser = getCurrentUser();
+    currentUser = getCurrentUser();
+
     if (currentUser) {
         document.getElementById("name").value = currentUser.name || '';
         document.getElementById("cpf").value = currentUser.cpf || '';
@@ -16,29 +21,31 @@ document.addEventListener('DOMContentLoaded', () => {
         console.error("Usuário não encontrado.");
     }
 
-    const userEditForm = document.getElementById("edit-profile-form");
-    userEditForm.addEventListener('submit', (event) => {
-        event.preventDefault(); 
-
-        const password = document.getElementById("password").value;
-
-        if (!isValidPassword(password, currentUser.password)) {
-            alert("Senha incorreta. Por favor, tente novamente.");
-            return;
-        }
-        
-        const updatedUser = {
-            name: document.getElementById("name").value,
-            cpf: currentUser.cpf, 
-            username: currentUser.username,  
-            email: document.getElementById("email").value,
-            dob: document.getElementById("dob").value,
-            tel: document.getElementById("tel").value,
-        };
-
-        localStorage.setItem('currentUser', JSON.stringify(updatedUser));
-        
-        alert("Dados atualizados com sucesso!");
-        window.location.href = "game-selection.html";  
-    });
+    userEditForm.addEventListener('submit', (event) => { onEditFormClick(event); });
 });
+
+async function onEditFormClick(event) {
+    event.preventDefault(); 
+
+    const password = userEditForm.password.value;
+    const hashedPassword = await hashPassword(password);
+    if (hashedPassword != currentUser.password) {
+        alert("Senha incorreta. Por favor, tente novamente!");
+        return;
+    }
+
+    const updatedUser = {
+        name: userEditForm.name.value.trim(),
+        cpf: currentUser.cpf, 
+        dob: userEditForm.dob.value.trim(),  
+        username: currentUser.username,
+        tel: userEditForm.tel.value.trim(),
+        email: userEditForm.email.value.trim(),
+        password: currentUser.password
+    }
+
+    setCurrentUser(updatedUser);
+    updateUser(updatedUser);
+    
+    alert("Dados atualizados com sucesso!");
+}
