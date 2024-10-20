@@ -436,7 +436,7 @@ button {
 .field.closed {
     cursor: pointer;
     background-color: var(--field-closed);
-    transition: opacity 0.2s;
+    transition: opacity 0.2s, background-color 0.2s;
 }
 
 .field.closed:hover {
@@ -445,6 +445,15 @@ button {
 
 .field.closed.variant {
     background-color: var(--field-closed-variant);
+}
+
+.field.closed.game-over {
+    cursor: default;
+    transition: none;
+}
+
+.field.closed:hover {
+    opacity: 1;
 }
 
 .field > img {
