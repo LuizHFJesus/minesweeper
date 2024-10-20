@@ -244,14 +244,12 @@ function handleFieldClick(row, col) {
     revealField(row, col, true);
 
     if (field.isBomb) {
-        revealAllBombs();
         handledGameOver(false);
         return;
     }
 
-    if (field.bombCount === 0) {
-        revealAdjacentFields(row, col);
-    }
+    if (field.bombCount === 0) revealAdjacentFields(row, col);
+
     checkGameWin();
 }
 
@@ -261,13 +259,23 @@ function handledGameOver(isWin) {
     clearInterval(timer);
     timer = null;
 
-    if (isWin) {
-        alert('Game Over! You won.');
-    } else {
-        alert('Game Over! You clicked on a bomb.');
-    }
+    bombsLabel.textContent = `${game.bombs}`.padStart(4, '0');
+
+    if (!isWin) revealAllBombs(isWin);
+    updateFieldsClosedOnGameOver();
+    showGameOverMessage(isWin);
 
     saveGame(isWin, time);
+}
+
+function showGameOverMessage(isWin) {
+    setTimeout(function() {
+        if (isWin) {
+            alert('Game Over! You won.');
+        } else {
+            alert('Game Over! You clicked on a bomb.');
+        }
+    }, 500); 
 }
 
 function checkGameWin() {
@@ -305,7 +313,7 @@ function isClassicMode() {
     return game.mode === 'classico';
 }
 
-function revealField(row, col, clicked = false) {
+function revealField(row, col, bombClicked = false) {
     const field = document.getElementById(`field-${row}-${col}`);
 
     gameBoard[row][col].isRevealed = true;
@@ -315,8 +323,7 @@ function revealField(row, col, clicked = false) {
     field.removeEventListener('contextmenu', handledFieldRightClick);
 
     if (gameBoard[row][col].isBomb) {
-        field.innerHTML = `<img src="../images/ic-field-${(clicked) ? "explode" : "bomb" }.png" alt="${(clicked) ? "Explosão" : "Bomba" }">`;
-        return;
+        field.innerHTML = `<img src="../images/ic-field-${(bombClicked) ? "explode" : "bomb" }.png" alt="${(bombClicked) ? "Explosão" : "Bomba" }">`;
     } else if (gameBoard[row][col].bombCount > 0) {
         field.textContent = gameBoard[row][col].bombCount;
         field.classList.add(`color-${gameBoard[row][col].bombCount}`);
@@ -324,10 +331,27 @@ function revealField(row, col, clicked = false) {
 }
 
 function revealAllBombs() {
-    for (let i = 0; i < game.rows; i++) {
-        for (let j = 0; j < game.cols; j++) {
-            if (gameBoard[i][j].isBomb && !gameBoard[i][j].isRevealed) {
-                revealField(i, j);
+    for (let row = 0; row < game.rows; row++) {
+        for (let col = 0; col < game.cols; col++) {
+            if (gameBoard[row][col].isBomb && !gameBoard[row][col].isRevealed) {
+                revealField(row, col);
+            }
+        }
+    }
+}
+
+function updateFieldsClosedOnGameOver() {
+    for (let row = 0; row < game.rows; row++) {
+        for (let col = 0; col < game.cols; col++) {
+            if (!gameBoard[row][col].isRevealed) {
+                const field = document.getElementById(`field-${row}-${col}`);
+                field.classList.add('game-over');
+                field.removeEventListener('click', handleFieldClick);
+                field.removeEventListener('contextmenu', handledFieldRightClick);
+
+                if (gameBoard[row][col].isBomb) {
+                    field.innerHTML = `<img src="../images/ic-bomb-logo-nobg.png" alt="Bomba">`;
+                }
             }
         }
     }
