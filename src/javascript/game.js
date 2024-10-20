@@ -355,9 +355,7 @@ function updateFieldsClosedOnGameOver() {
                 field.removeEventListener('click', handleFieldClick);
                 field.removeEventListener('contextmenu', handledFieldRightClick);
 
-                if (gameBoard[row][col].isBomb) {
-                    field.innerHTML = `<img src="../images/ic-bomb-logo-nobg.png" alt="Bomba">`;
-                }
+                // TODO: Evaluate to add a new style to the field that are bombs
             }
         }
     }

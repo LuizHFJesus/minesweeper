@@ -1,6 +1,6 @@
 'use strict';
 
-import { setCurrentUser, findUser, hashPassword } from './user-utils.js';
+import { setCurrentUser, findUser, hashPassword } from './user-data-utils.js';
 
 const userLoginForm = document.getElementById('user-login');
 
