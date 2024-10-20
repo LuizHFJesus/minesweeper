@@ -38,16 +38,20 @@ export function getCurrentGame() {
     return JSON.parse(localStorage.getItem('currentGame') ?? 'null');
 }
 
+export function removeCurrentGame() {
+    localStorage.removeItem('currentGame');
+}
+
 function setCurrentGame(game) {
     localStorage.setItem('currentGame', JSON.stringify(game));
 }
 
-function getGames() {
+export function getGames() {
     return JSON.parse(localStorage.getItem('games') ?? '[]');
 }
 
 
-function saveGames(games) {
+export function saveGames(games) {
     localStorage.setItem('games', JSON.stringify(games));
 }
 
