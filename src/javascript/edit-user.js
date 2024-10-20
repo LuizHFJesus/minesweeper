@@ -1,7 +1,7 @@
 'use strict';
 
-import { getCurrentUser, getUsers, removeCurrentUser, setCurrentUser, saveUsers, updateUser } from './user-utils.js';
-import { hashPassword } from './user-utils.js';
+import { getCurrentUser, getUsers, removeCurrentUser, setCurrentUser, saveUsers, updateUser } from './user-data-utils.js';
+import { hashPassword } from './user-data-utils.js';
 import { getGames, removeCurrentGame, saveGames } from './game-data-utils.js';
 
 const userEditForm = document.getElementById("edit-profile-form");

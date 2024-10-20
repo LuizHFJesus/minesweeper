@@ -1,6 +1,6 @@
 'use strict';
 
-import { getCurrentUser } from './user-utils.js';
+import { getCurrentUser } from './user-data-utils.js';
 
 export function createGame(rows, cols, bombs, mode, timeLimit) {
     const currentUser = getCurrentUser();
