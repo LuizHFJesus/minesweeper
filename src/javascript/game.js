@@ -322,6 +322,12 @@ function revealField(row, col, bombClicked = false) {
     field.removeEventListener('click', handleFieldClick);
     field.removeEventListener('contextmenu', handledFieldRightClick);
 
+    if (gameBoard[row][col].isFlagged) {
+        gameBoard[row][col].isFlagged = false;
+        field.innerHTML = '';
+        bombsLabel.textContent = `${parseInt(bombsLabel.textContent) + 1}`.padStart(4, '0');
+    }
+
     if (gameBoard[row][col].isBomb) {
         field.innerHTML = `<img src="../images/ic-field-${(bombClicked) ? "explode" : "bomb" }.png" alt="${(bombClicked) ? "Explosão" : "Bomba" }">`;
     } else if (gameBoard[row][col].bombCount > 0) {
