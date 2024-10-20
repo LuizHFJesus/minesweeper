@@ -1,6 +1,6 @@
 'use strict';
 
-import { criarGameData } from "./game-utils.js";
+import { createGame } from "./game-data-utils.js";
 
 const startPersonalizedClassicGame = document.getElementById('personalized-classic');
 const startPersonalizedRivotrilGame = document.getElementById('personalized-rivotril');
@@ -31,7 +31,7 @@ startPersonalizedClassicGame.addEventListener('click', (event) => {
         return;
     }
 
-    criarGameData(rows, cols, bombs, mode, timeLimit);
+    createGame(rows, cols, bombs, mode, timeLimit);
     window.location.href = 'game.html'
 });
 
@@ -66,6 +66,6 @@ startPersonalizedRivotrilGame.addEventListener('click', (event) => {
         timeLimit = 60;
     }
 
-    criarGameData(rows, cols, bombs, mode, timeLimit);
+    createGame(rows, cols, bombs, mode, timeLimit);
     window.location.href = 'game.html'
 });

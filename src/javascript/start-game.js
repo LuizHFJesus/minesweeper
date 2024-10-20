@@ -1,6 +1,6 @@
 'use strict';
 
-import { criarGameData } from "./game-utils.js";
+import { createGame } from "./game-data-utils.js";
 
 const startBegginerClassicGame = document.getElementById('begginer-classic');
 const startBegginerRivotrilGame = document.getElementById('begginer-rivotril');
@@ -18,7 +18,7 @@ startBegginerClassicGame.addEventListener('click', (event) => {
     const mode = 'classico'; 
     const timeLimit = null; 
 
-    criarGameData(rows, cols, bombs, mode, timeLimit);
+    createGame(rows, cols, bombs, mode, timeLimit);
     window.location.href = 'game.html'
 });
 
@@ -31,7 +31,7 @@ startBegginerRivotrilGame.addEventListener('click', (event) => {
     const mode = 'rivotril'; 
     const timeLimit = 120; 
 
-    criarGameData(rows, cols, bombs, mode, timeLimit);
+    createGame(rows, cols, bombs, mode, timeLimit);
     window.location.href = 'game.html'
 });
 
@@ -44,7 +44,7 @@ startIntermediateClassicGame.addEventListener('click', (event) => {
     const mode = 'classico'; 
     const timeLimit = null; 
 
-    criarGameData(rows, cols, bombs, mode, timeLimit);
+    createGame(rows, cols, bombs, mode, timeLimit);
     window.location.href = 'game.html'
 });
 
@@ -57,7 +57,7 @@ startIntermediateRivotrilGame.addEventListener('click', (event) => {
     const mode = 'rivotril'; 
     const timeLimit = 120; 
 
-    criarGameData(rows, cols, bombs, mode, timeLimit);
+    createGame(rows, cols, bombs, mode, timeLimit);
     window.location.href = 'game.html'
 });
 
@@ -70,7 +70,7 @@ startAdvancedClassicGame.addEventListener('click', (event) => {
     const mode = 'classico'; 
     const timeLimit = null; 
 
-    criarGameData(rows, cols, bombs, mode, timeLimit);
+    createGame(rows, cols, bombs, mode, timeLimit);
     window.location.href = 'game.html'
 });
 
@@ -83,6 +83,6 @@ startAdvancedRivotrilGame.addEventListener('click', (event) => {
     const mode = 'rivotril'; 
     const timeLimit = 180; 
 
-    criarGameData(rows, cols, bombs, mode, timeLimit);
+    createGame(rows, cols, bombs, mode, timeLimit);
     window.location.href = 'game.html'
 });

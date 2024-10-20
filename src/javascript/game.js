@@ -1,4 +1,4 @@
-import { getCurrentGame, finishGame } from "./game-utils.js";
+import { getCurrentGame, saveGame } from "./game-data-utils.js";
 
 let game = getCurrentGame();
 
@@ -32,7 +32,7 @@ function handleResetButton() {
         const confirmRestart = window.confirm("Você tem certeza que deseja reiniciar a partida?\n\nTodas as jogadas atuais serão perdidas e a partida será contabilizada como derrota!");
         if (!confirmRestart) return;
 
-        finishGame(false, time);
+        saveGame(false, time);
     }
 
     gameBoard = [];
@@ -50,7 +50,7 @@ function handleFinishButton() {
         const confirmRestart = window.confirm("Você tem certeza que deseja sair da partida?\n\nTodas as jogadas atuais serão perdidas e a partida será contabilizada como derrota!");
         if (!confirmRestart) return;
 
-        finishGame(false, time);
+        saveGame(false, time);
     }
 
     gameBoard = [];
@@ -267,7 +267,7 @@ function handledGameOver(isWin) {
         alert('Game Over! You clicked on a bomb.');
     }
 
-    finishGame(isWin, time);
+    saveGame(isWin, time);
 }
 
 function checkGameWin() {
