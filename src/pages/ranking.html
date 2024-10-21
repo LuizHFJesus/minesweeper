@@ -24,8 +24,8 @@
 
     <main>
         <div class="container-header-text">
-            <h2>Ranking geral</h2>
-            <p>Veja quem domina o campo! 
+            <h2>Ranking geral no modo Clássico</h2>
+            <p>Veja quem domina o campo no modo Clássico! 
                 Aqui estão os jogadores que conquistaram os melhores tempos nos maiores desafios.</p>
         </div>
         
@@ -36,93 +36,33 @@
                     <th><span>Usuário</span></th>
                     <th><span>Dimensões</span></th>
                     <th><span>Bombas</span></th>
-                    <th><span>Tempo</span></th>
+                    <th><span>Tempo (s)</span></th>
                     <th><span>Data e Hora</span></th>
                 </tr>
             </thead>
 
-            <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>gpcoelho</td>
-                    <td>50x50</td>
-                    <td>0100</td>
-                    <td>13:29</td>
-                    <td>03/09/2024 15:20</td>
+            <tbody id="classic-ranking"></tbody>
+        </table>
+
+        <div class="container-header-text">
+            <h2>Ranking geral no modo Rivotril</h2>
+            <p>Veja quem domina o campo no modo Rivotril! 
+                Aqui estão os jogadores que conquistaram os melhores tempos nos maiores desafios.</p>
+        </div>
+        
+        <table>
+            <thead>
+                <tr> 
+                    <th><span>Posição</span></th>
+                    <th><span>Usuário</span></th>
+                    <th><span>Dimensões</span></th>
+                    <th><span>Bombas</span></th>
+                    <th><span>Tempo (s)</span></th>
+                    <th><span>Data e Hora</span></th>
                 </tr>
-                <tr>
-                    <td>2</td>
-                    <td>gpcoelho</td>
-                    <td>50x50</td>
-                    <td>0100</td>
-                    <td>13:29</td>
-                    <td>03/09/2024 15:20</td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td>gpcoelho</td>
-                    <td>50x50</td>
-                    <td>0100</td>
-                    <td>13:29</td>
-                    <td>03/09/2024 15:20</td>
-                </tr>
-                <tr>
-                    <td>4</td>
-                    <td>gpcoelho</td>
-                    <td>50x50</td>
-                    <td>0100</td>
-                    <td>13:29</td>
-                    <td>03/09/2024 15:20</td>
-                </tr>
-                <tr>
-                    <td>5</td>
-                    <td>gpcoelho</td>
-                    <td>50x50</td>
-                    <td>0100</td>
-                    <td>13:29</td>
-                    <td>03/09/2024 15:20</td>
-                </tr>
-                <tr>
-                    <td>6</td>
-                    <td>gpcoelho</td>
-                    <td>50x50</td>
-                    <td>0100</td>
-                    <td>13:29</td>
-                    <td>03/09/2024 15:20</td>
-                </tr>
-                <tr>
-                    <td>7</td>
-                    <td>gpcoelho</td>
-                    <td>50x50</td>
-                    <td>0100</td>
-                    <td>13:29</td>
-                    <td>03/09/2024 15:20</td>
-                </tr>
-                <tr>
-                    <td>8</td>
-                    <td>gpcoelho</td>
-                    <td>50x50</td>
-                    <td>0100</td>
-                    <td>13:29</td>
-                    <td>03/09/2024 15:20</td>
-                </tr>
-                <tr>
-                    <td>9</td>
-                    <td>gpcoelho</td>
-                    <td>50x50</td>
-                    <td>0100</td>
-                    <td>13:29</td>
-                    <td>03/09/2024 15:20</td>
-                </tr>
-                <tr>
-                    <td>10</td>
-                    <td>gpcoelho</td>
-                    <td>50x50</td>
-                    <td>0100</td>
-                    <td>13:29</td>
-                    <td>03/09/2024 15:20</td>
-                </tr>
-            </tbody>
+            </thead>
+
+            <tbody id="rivotril-ranking"></tbody>
         </table>
     </main>
         
@@ -132,5 +72,7 @@
         <img class="logo-footer" src="../images/logo-ft.png" alt="Logo FT">
     </footer>
 
+    <script type="module" src="../javascript/game-data-utils.js"></script> 
+    <script type="module" src="../javascript/game-ranking.js"></script>
 </body>
 </html>

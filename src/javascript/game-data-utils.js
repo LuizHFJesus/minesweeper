@@ -48,12 +48,27 @@ export function getGames() {
     return JSON.parse(localStorage.getItem('games') ?? '[]');
 }
 
+export function saveGames(games) {
+    localStorage.setItem('games', JSON.stringify(games));
+}
+
 export function getGamesByUsername(username) {
     return getGames().filter(game => game.username === username).reverse();
 }
 
-export function saveGames(games) {
-    localStorage.setItem('games', JSON.stringify(games));
+export function getGamesRanking(mode) {
+    return getGames()
+        .filter(game => game.mode === mode && game.won)
+        .sort((a, b) => (a.rows*a.cols) - (b.rows*b.cols))
+        .sort((a, b) => a.bombs - b.bombs)
+        .sort((a, b) => {
+            if (mode == "classico") {
+                return a.time - b.time;
+            } else {
+                return b.time + a.time;
+            }
+        })
+        .slice(0, 10);
 }
 
 // TODO: Move this function to another file
