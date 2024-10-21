@@ -58,7 +58,7 @@ export function getGamesByUsername(username) {
 
 export function getGamesRanking(mode) {
     return getGames()
-        .filter(game => game.mode === mode && game.won)
+        .filter(game => game.mode === mode && ((game.bombs/(game.rows*game.cols)) >= 0.10) && game.won)
         .sort((a, b) => (a.rows*a.cols) - (b.rows*b.cols))
         .sort((a, b) => a.bombs - b.bombs)
         .sort((a, b) => {
