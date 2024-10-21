@@ -275,7 +275,7 @@ function showGameOverMessage(isWin) {
         } else {
             alert('Game Over! You clicked on a bomb.');
         }
-    }, 500); 
+    }, 800); 
 }
 
 function checkGameWin() {
