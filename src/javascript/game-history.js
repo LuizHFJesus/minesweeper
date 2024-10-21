@@ -1,0 +1,32 @@
+'use strict';
+
+import { getGamesByUsername } from './game-data-utils.js';
+import { getCurrentUser } from './user-data-utils.js';
+
+const gameHistoryBody = document.getElementById('game-history');
+
+document.addEventListener('DOMContentLoaded', function() {
+    const currentUser = getCurrentUser();
+    if (!currentUser) {
+        alert('Você precisa estar logado para acessar essa página!');
+        window.location.href = '../../index.html';
+    }
+
+    const games = getGamesByUsername(currentUser.username);
+
+    for (let game of games) {
+        const isClassicMode = game.mode == "classico"
+
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+            <td>${game.rows}x${game.cols}</td>
+            <td>${game.bombs}</td>
+            <td>${(isClassicMode) ? "Clássico" : "Rivotril"}</td>
+            <td>${`${game.time}${(!isClassicMode) ? `/${game.timeLimit}` : ''}`}</td>
+            <td>${game.datetime}</td>
+            <td>${game.won ? 'Ganhou' : 'Perdeu'}</td>
+        `;
+
+        gameHistoryBody.appendChild(tr);
+    }
+});

@@ -6,7 +6,6 @@ export function createGame(rows, cols, bombs, mode, timeLimit) {
     const currentUser = getCurrentUser();
 
     var gameData = {
-        id: null,
         username: currentUser.username,
         rows: rows,
         cols: cols,
@@ -24,8 +23,7 @@ export function createGame(rows, cols, bombs, mode, timeLimit) {
 export function saveGame(won, time) {
     let currentGame = getCurrentGame();
 
-    currentGame.id = getGameId();
-    currentGame.datetime = new Date();
+    currentGame.datetime = formatDate(new Date());
     currentGame.time = time;
     currentGame.won = won;
     
@@ -50,18 +48,22 @@ export function getGames() {
     return JSON.parse(localStorage.getItem('games') ?? '[]');
 }
 
+export function getGamesByUsername(username) {
+    return getGames().filter(game => game.username === username).reverse();
+}
 
 export function saveGames(games) {
     localStorage.setItem('games', JSON.stringify(games));
 }
 
-function getGameId() {
-    let gameId = getNextGameId();
-    localStorage.setItem('gameId', ++gameId);
-    return gameId;
-}
+// TODO: Move this function to another file
+function formatDate(date) {
+    const day = String(date.getDate()).padStart(2, '0');
+    const month = String(date.getMonth() + 1).padStart(2, '0');
+    const year = date.getFullYear();
+    
+    const hours = String(date.getHours()).padStart(2, '0');
+    const minutes = String(date.getMinutes()).padStart(2, '0');
 
-function getNextGameId() {
-    let gameId = localStorage.getItem('gameId');
-    return parseInt(gameId ?? -1, 10);
+    return `${day}/${month}/${year} ${hours}:${minutes}`;
 }

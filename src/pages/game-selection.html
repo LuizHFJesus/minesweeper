@@ -115,63 +115,16 @@
         <table>
             <thead>
                 <tr>
-                    <th><span>Jogo nº</span></th>
                     <th><span>Dimensões</span></th>
                     <th><span>Bombas</span></th>
                     <th><span>Modo</span></th>
-                    <th><span>Tempo</span></th>
+                    <th><span>Tempo (s)</span></th>
                     <th><span>Data e hora</span></th>
                     <th><span>Resultado</span></th>
                 </tr>
             </thead>
 
-            <tbody>
-                <tr>
-                    <td>5</td>
-                    <td>50x50</td>
-                    <td>0100</td>
-                    <td>Clássico</td>
-                    <td>13:29</td>
-                    <td>03/09/2024 15:20</td>
-                    <td>Ganhou</td>
-                </tr>
-                <tr>
-                    <td>4</td>
-                    <td>50x50</td>
-                    <td>0100</td>
-                    <td>Rivotril</td>
-                    <td>13:29</td>
-                    <td>03/09/2024 15:20</td>
-                    <td>Ganhou</td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td>50x50</td>
-                    <td>0100</td>
-                    <td>Clássico</td>
-                    <td>13:29</td>
-                    <td>03/09/2024 15:20</td>
-                    <td>Ganhou</td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>50x50</td>
-                    <td>0100</td>
-                    <td>Clássico</td>
-                    <td>13:29</td>
-                    <td>03/09/2024 15:20</td>
-                    <td>Perdeu</td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>50x50</td>
-                    <td>0100</td>
-                    <td>Clássico</td>
-                    <td>13:29</td>
-                    <td>03/09/2024 15:20</td>
-                    <td>Perdeu</td>
-                </tr>
-            </tbody>
+            <tbody id="game-history"></tbody>
         </table>
     </main>
 
@@ -181,9 +134,9 @@
         <img class="logo-footer" src="../images/logo-ft.png" alt="Logo FT">
     </footer>
 
+    <script type="module" src="../javascript/game-data-utils.js"></script> 
     <script type="module" src="../javascript/user-data-utils.js"></script>
     <script type="module" src="../javascript/start-game.js"></script>
-    <script type="module" src="../javascript/game-data-utils.js"></script> 
-
+    <script type="module" src="../javascript/game-history.js"></script>
 </body>
 </html>
