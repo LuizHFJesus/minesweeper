@@ -206,12 +206,12 @@ function initializeGameBoard() {
     }
 }
 
-//TODO MOVER PARA OUTRO ARQUIVO
+// TODO: Move this method to another file
 function isRightMouseClick(e) {
     e.preventDefault();
-    if ("which" in e) { // Gecko (Firefox), WebKit (Safari/Chrome) & Opera
+    if ("which" in e) {
         return e.which == 3; 
-    } else if ("button" in e) { // IE, Opera
+    } else if ("button" in e) {
         return e.button == 2; 
     }   
 }
@@ -271,9 +271,9 @@ function handledGameOver(isWin) {
 function showGameOverMessage(isWin) {
     setTimeout(function() {
         if (isWin) {
-            alert('Game Over! You won.');
+            alert('Fim de jogo!\n\nVocê GANHOU!\b\bParabéns, você superou esse desafio e venceu o CampoMinado!.');
         } else {
-            alert('Game Over! You clicked on a bomb.');
+            alert('Fim de jogo!\n\nVocê PERDEU!\n\nContinue treinando para conseguir vencer o CampoMinado!.');
         }
     }, 800); 
 }
