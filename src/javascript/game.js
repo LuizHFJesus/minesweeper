@@ -308,7 +308,7 @@ function startGame() {
     }, 1000);
 }
 
-//TODO MOVER PARA OUTRO ARQUIVO
+// TODO: Move this method to another file
 function isClassicMode() {
     return game.mode === 'classico';
 }
