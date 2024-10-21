@@ -31,12 +31,16 @@ startPersonalizedRivotrilGame.addEventListener('click', (event) => {
     const bombs = Number(gamePersonalizeForm.bomb.value.trim()); 
     const mode = 'rivotril'; 
     let timeLimit = null;
+    let timeLimitHalf1 = null;
+    let timeLimitHalf2 = null;
+    const rowsCols = rows * cols; 
 
     const confirmStart = shouldStartGamePersonalize(bombs, rows, cols);
     if (!confirmStart) return;
 
-    // TODO: Implement new rule for time limit calculation
-    timeLimit = parseInt(5 * ((rows*cols) ** 1.1) / (bombs ** 0.9));
+    timeLimitHalf1 = parseInt((17/540) * (bombs * bombs) + (347/54) * bombs - (200/27));
+    timeLimitHalf2 = parseInt((1427/392160) * (rowsCols * rowsCols) + (18359/98040) * (rowsCols) + (17754/817));
+    timeLimit = parseInt((timeLimitHalf1 + timeLimitHalf2) / 2);
 
     createGame(rows, cols, bombs, mode, timeLimit);
     window.location.href = 'game.html'
