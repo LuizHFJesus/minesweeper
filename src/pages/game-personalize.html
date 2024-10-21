@@ -16,7 +16,7 @@
         <nav class="menu">
             <a href="game-selection.html"><b>Jogo</b></a>
             <a href="ranking.html">Ranking geral</a>
-            <a href="edit-profile.html">Editar perfil</a>
+            <a href="edit-profile.html">Editar conta</a>
             <a href="about.html">Sobre</a>
             <a href="../../index.html">Desconectar</a>
         </nav>
@@ -32,7 +32,7 @@
             <div class="card column">
                 <h3 class="header">Personalize</h3>    
 
-                <form action="personalize" method="post" class="form-field-line">
+                <form action="personalize" id="game-personalize" method="post" class="form-field-line">
                     <div class="form-field">
                         <label for="row">Linhas</label>
                         <input type="number" min="2" id="row" name="row" placeholder="00" required>
@@ -52,15 +52,15 @@
                 <div class="card-content-row">
                     <div class="card-content center">
                         <div>
-                            <a href="game.html" class="label-btn"> 
+                            <button id="personalized-classic" class="label-btn"> 
                                 <img class="icon" src="../images/ic-arrow-light.svg" alt="Seta">
                                 Modo clássico
-                            </a>
+                            </button>
         
-                            <a href="game.html" class="label-btn"> 
+                            <button id="personalized-rivotril" class="label-btn"> 
                                 <img class="icon" src="../images/ic-arrow-light.svg" alt="Seta">
                                 Modo rivotril
-                            </a>
+                            </button>
                         </div> 
                     </div>
 
@@ -82,5 +82,8 @@
         <h3>SI401 - Programação para a Web</h3>
         <img class="logo-footer" src="../images/logo-ft.png" alt="Logo FT">
     </footer>
+
+    <script type="module" src="../javascript/start-game-personalize.js"></script>
+    <script type="module" src="../javascript/game-data-utils.js"></script>
 </body>
 </html>
