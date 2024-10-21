@@ -29,7 +29,7 @@ startBegginerRivotrilGame.addEventListener('click', (event) => {
     const cols = 10; 
     const bombs = 10; 
     const mode = 'rivotril'; 
-    const timeLimit = 120; 
+    const timeLimit = 60; 
 
     createGame(rows, cols, bombs, mode, timeLimit);
     window.location.href = 'game.html'
@@ -55,7 +55,7 @@ startIntermediateRivotrilGame.addEventListener('click', (event) => {
     const cols = 20; 
     const bombs = 40;  
     const mode = 'rivotril'; 
-    const timeLimit = 120; 
+    const timeLimit = 300; 
 
     createGame(rows, cols, bombs, mode, timeLimit);
     window.location.href = 'game.html'
@@ -81,7 +81,7 @@ startAdvancedRivotrilGame.addEventListener('click', (event) => {
     const cols = 25; 
     const bombs = 100; 
     const mode = 'rivotril'; 
-    const timeLimit = 180; 
+    const timeLimit = 900; 
 
     createGame(rows, cols, bombs, mode, timeLimit);
     window.location.href = 'game.html'
