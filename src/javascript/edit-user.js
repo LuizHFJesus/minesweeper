@@ -11,6 +11,10 @@ let currentUser = null;
 
 document.addEventListener('DOMContentLoaded', () => {
     currentUser = getCurrentUser();
+    if (!currentUser) {
+        alert('Você precisa estar logado para acessar essa página!');
+        window.location.href = '../../index.html';
+    }
 
     if (currentUser) {
         document.getElementById("name").value = currentUser.name || '';
