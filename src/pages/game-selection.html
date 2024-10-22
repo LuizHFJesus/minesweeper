@@ -13,10 +13,10 @@
             <h2>CampoMinado!</h2>
         </div>
 
-        <nav class="menu">
+        <nav>
             <a href="game-selection.html"><b>Jogo</b></a>
             <a href="ranking.html">Ranking geral</a>
-            <a href="edit-profile.html">Editar perfil</a>
+            <a href="edit-profile.html">Editar conta</a>
             <a href="about.html">Sobre</a>
             <a href="../../index.html">Desconectar</a>
         </nav>
@@ -35,15 +35,15 @@
                     <h3 class="header">Iniciante</h3>
 
                     <div>
-                        <a href="game.html" class="label-btn"> 
+                        <button id="begginer-classic" class="label-btn"> 
                             <img class="icon" src="../images/ic-arrow-light.svg" alt="Seta">
                             Modo clássico
-                        </a>
+                        </button>
     
-                        <a href="game.html" class="label-btn"> 
+                        <button id="begginer-rivotril" class="label-btn"> 
                             <img class="icon" src="../images/ic-arrow-light.svg" alt="Seta">
                             Modo rivotril
-                        </a>
+                        </button>
                     </div>
                 </div>
 
@@ -55,15 +55,15 @@
                     <h3 class="header dark">Intermediário</h3>
 
                     <div>
-                        <a href="game.html" class="label-btn dark"> 
+                        <button id="intermediate-classic" class="label-btn dark"> 
                             <img class="icon" src="../images/ic-arrow-dark.svg" alt="Seta">
                             Modo clássico
-                        </a>
+                        </button>
     
-                        <a href="game.html" class="label-btn dark"> 
+                        <button id="intermediate-rivotril" class="label-btn dark"> 
                             <img class="icon" src="../images/ic-arrow-dark.svg" alt="Seta">
                             Modo rivotril
-                        </a>
+                        </button>
                     </div>
                 </div>
 
@@ -72,18 +72,18 @@
 
             <div class="card dark">
                 <div class="card-content">
-                    <h3 class="header dark">Intermediário</h3>
+                    <h3 class="header dark">Avançado</h3>
 
                     <div>
-                        <a href="game.html" class="label-btn dark"> 
+                        <button id="advanced-classic" class="label-btn dark"> 
                             <img class="icon" src="../images/ic-arrow-dark.svg" alt="Seta">
                             Modo clássico
-                        </a>
+                        </button>
     
-                        <a href="game.html" class="label-btn dark"> 
+                        <button id="advanced-rivotril" class="label-btn dark"> 
                             <img class="icon" src="../images/ic-arrow-dark.svg" alt="Seta">
                             Modo rivotril
-                        </a>
+                        </button>
                     </div>
                 </div>
 
@@ -115,57 +115,16 @@
         <table>
             <thead>
                 <tr>
-                    <th><span>Jogo nº</span></th>
-                    <th><span>Modo</span></th>
                     <th><span>Dimensões</span></th>
                     <th><span>Bombas</span></th>
-                    <th><span>Tempo</span></th>
-                    <th><span>Data e Hora</span></th>
+                    <th><span>Modo</span></th>
+                    <th><span>Tempo (s)</span></th>
+                    <th><span>Data e hora</span></th>
+                    <th><span>Resultado</span></th>
                 </tr>
             </thead>
 
-            <tbody>
-                <tr>
-                    <td>5</td>
-                    <td>Clássico</td>
-                    <td>50x50</td>
-                    <td>0100</td>
-                    <td>13:29</td>
-                    <td>03/09/2024 15:20</td>
-                </tr>
-                <tr>
-                    <td>4</td>
-                    <td>Rivotril</td>
-                    <td>50x50</td>
-                    <td>0100</td>
-                    <td>13:29</td>
-                    <td>03/09/2024 15:20</td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td>Clássico</td>
-                    <td>50x50</td>
-                    <td>0100</td>
-                    <td>13:29</td>
-                    <td>03/09/2024 15:20</td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>Clássico</td>
-                    <td>50x50</td>
-                    <td>0100</td>
-                    <td>13:29</td>
-                    <td>03/09/2024 15:20</td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>Clássico</td>
-                    <td>50x50</td>
-                    <td>0100</td>
-                    <td>13:29</td>
-                    <td>03/09/2024 15:20</td>
-                </tr>
-            </tbody>
+            <tbody id="game-history"></tbody>
         </table>
     </main>
 
@@ -174,5 +133,10 @@
         <h3>SI401 - Programação para a Web</h3>
         <img class="logo-footer" src="../images/logo-ft.png" alt="Logo FT">
     </footer>
+
+    <script src="../javascript/game-data-utils.js"></script> 
+    <script src="../javascript/user-data-utils.js"></script>
+    <script src="../javascript/start-game.js"></script>
+    <script src="../javascript/game-history.js"></script>
 </body>
 </html>
