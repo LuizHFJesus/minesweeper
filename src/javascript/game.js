@@ -325,7 +325,6 @@ function revealField(row, col, bombClicked = false) {
     if (gameBoard[row][col].isFlagged) {
         gameBoard[row][col].isFlagged = false;
         field.innerHTML = '';
-        bombsLabel.textContent = `${parseInt(bombsLabel.textContent) + 1}`.padStart(4, '0');
     }
 
     if (gameBoard[row][col].isBomb) {
