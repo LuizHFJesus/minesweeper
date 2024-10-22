@@ -1,8 +1,5 @@
 'use strict';
 
-import { getGamesByUsername } from './game-data-utils.js';
-import { getCurrentUser } from './user-data-utils.js';
-
 const gameHistoryBody = document.getElementById('game-history');
 
 document.addEventListener('DOMContentLoaded', function() {

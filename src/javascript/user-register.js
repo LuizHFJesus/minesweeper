@@ -1,8 +1,5 @@
 'use strict';
 
-import { setCurrentUser, getUsers, saveUsers, findUser, hashPassword } from './user-data-utils.js';
-import { isValidCpf, isValidUsername, isValidPassword } from './user-form-utils.js';
-
 const userRegisterForm = document.getElementById('user-register');
 
 async function handleUserRegister(event) {

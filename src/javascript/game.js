@@ -1,6 +1,4 @@
-import { getCurrentGame, saveGame } from "./game-data-utils.js";
-
-let game = getCurrentGame();
+'use strict';
 
 const fieldsLabel = document.getElementById('fields-label');
 const timeLabel = document.getElementById('time-label');
@@ -9,13 +7,15 @@ const bombsLabel = document.getElementById('bombs-label');
 const resetButton = document.getElementById('reset-btn');
 const finishButton = document.getElementById('finish-btn');
 const cheatButton = document.getElementById('cheat-btn');
-let isCheatEnabled = false;
 
 const gameBoardDiv = document.getElementById('game-board');
+
+let game = getCurrentGame();
 
 let gameBoard = [];
 let isGameRunning = false;
 let isGameOver = false;
+let isCheatEnabled = false;
 
 let timer = null;
 let time = 0;
@@ -271,9 +271,9 @@ function handledGameOver(isWin) {
 function showGameOverMessage(isWin) {
     setTimeout(function() {
         if (isWin) {
-            alert('Fim de jogo!\n\nVocê GANHOU!\b\bParabéns, você superou esse desafio e venceu o CampoMinado!.');
+            alert('Fim de jogo. Você GANHOU!\n\nParabéns, você superou esse desafio e venceu o CampoMinado!.');
         } else {
-            alert('Fim de jogo!\n\nVocê PERDEU!\n\nContinue treinando para conseguir vencer o CampoMinado!.');
+            alert('Fim de jogo. Você PERDEU!\n\nContinue treinando para conseguir vencer o CampoMinado!.');
         }
     }, 800); 
 }

@@ -1,12 +1,8 @@
 'use strict';
 
-import { getCurrentUser } from './user-data-utils.js';
-
-export function createGame(rows, cols, bombs, mode, timeLimit) {
-    const currentUser = getCurrentUser();
-
+function createGame(username, rows, cols, bombs, mode, timeLimit) {
     var gameData = {
-        username: currentUser.username,
+        username: username,
         rows: rows,
         cols: cols,
         bombs: bombs,
@@ -20,7 +16,7 @@ export function createGame(rows, cols, bombs, mode, timeLimit) {
     setCurrentGame(gameData);
 }
 
-export function saveGame(won, time) {
+function saveGame(won, time) {
     let currentGame = getCurrentGame();
 
     currentGame.datetime = formatDate(new Date());
@@ -32,11 +28,11 @@ export function saveGame(won, time) {
     saveGames(games);
 }
 
-export function getCurrentGame() {
+function getCurrentGame() {
     return JSON.parse(localStorage.getItem('currentGame') ?? 'null');
 }
 
-export function removeCurrentGame() {
+function removeCurrentGame() {
     localStorage.removeItem('currentGame');
 }
 
@@ -44,19 +40,19 @@ function setCurrentGame(game) {
     localStorage.setItem('currentGame', JSON.stringify(game));
 }
 
-export function getGames() {
+function getGames() {
     return JSON.parse(localStorage.getItem('games') ?? '[]');
 }
 
-export function saveGames(games) {
+function saveGames(games) {
     localStorage.setItem('games', JSON.stringify(games));
 }
 
-export function getGamesByUsername(username) {
+function getGamesByUsername(username) {
     return getGames().filter(game => game.username === username).reverse();
 }
 
-export function getGamesRanking(mode) {
+function getGamesRanking(mode) {
     return getGames()
         .filter(game => game.mode === mode && ((game.bombs/(game.rows*game.cols)) >= 0.10) && game.won)
         .sort((a, b) => (a.rows*a.cols) - (b.rows*b.cols))
