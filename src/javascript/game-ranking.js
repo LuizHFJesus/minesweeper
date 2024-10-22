@@ -1,7 +1,4 @@
 'use strict';
-
-import { getGamesRanking } from './game-data-utils.js';
-
 const classicRankingBody = document.getElementById('classic-ranking');
 const rivotrilRankingBody = document.getElementById('rivotril-ranking');
 

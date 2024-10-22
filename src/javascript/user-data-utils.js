@@ -1,26 +1,26 @@
 'use strict';
 
-export function getCurrentUser() {
+function getCurrentUser() {
     return JSON.parse(localStorage.getItem('currentUser'));
 }
 
-export function setCurrentUser(user) {
+function setCurrentUser(user) {
     localStorage.setItem('currentUser', JSON.stringify(user));
 }
 
-export function removeCurrentUser() {
+function removeCurrentUser() {
     localStorage.removeItem('currentUser');
 }
 
-export function getUsers() {
+function getUsers() {
     return JSON.parse(localStorage.getItem('users')) || [];
 }
 
-export function saveUsers(users) {
+function saveUsers(users) {
     localStorage.setItem('users', JSON.stringify(users));
 }
 
-export function findUser(cpfOrEmailOrUsername) {
+function findUser(cpfOrEmailOrUsername) {
     const users = getUsers();
     return users.find(user => 
         user.cpf === cpfOrEmailOrUsername || 
@@ -29,14 +29,14 @@ export function findUser(cpfOrEmailOrUsername) {
     );
 }
 
-export function updateUser(updatedUser) {
+function updateUser(updatedUser) {
     const users = getUsers();
     const index = users.findIndex(user => user.username === updatedUser.username);
     users[index] = updatedUser;
     saveUsers(users);
 }
 
-export async function hashPassword(password) {
+async function hashPassword(password) {
     const encoder = new TextEncoder();
     const data = encoder.encode(password);
     const hash = await crypto.subtle.digest('SHA-256', data);

@@ -1,10 +1,8 @@
 'use strict';
 
-import { setCurrentUser, findUser, hashPassword } from './user-data-utils.js';
-
 const userLoginForm = document.getElementById('user-login');
 
-export async function handleUserLogin(event) {
+async function handleUserLogin(event) {
     event.preventDefault();
 
     const form = event.target;

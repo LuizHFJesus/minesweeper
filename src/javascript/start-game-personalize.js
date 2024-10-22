@@ -1,11 +1,11 @@
 'use strict';
 
-import { createGame } from "./game-data-utils.js";
-
 const startPersonalizedClassicGame = document.getElementById('personalized-classic');
 const startPersonalizedRivotrilGame = document.getElementById('personalized-rivotril');
 
 const gamePersonalizeForm = document.getElementById('game-personalize');
+
+const currentUser = getCurrentUser();
 
 startPersonalizedClassicGame.addEventListener('click', (event) => {
     event.preventDefault(); 
@@ -19,7 +19,7 @@ startPersonalizedClassicGame.addEventListener('click', (event) => {
     const confirmStart = shouldStartGamePersonalize(bombs, rows, cols);
     if (!confirmStart) return;
 
-    createGame(rows, cols, bombs, mode, timeLimit);
+    createGame(currentUser.username, rows, cols, bombs, mode, timeLimit);
     window.location.href = 'game.html'
 });
 
@@ -42,7 +42,7 @@ startPersonalizedRivotrilGame.addEventListener('click', (event) => {
     timeLimitHalf2 = parseInt((1427/392160) * (rowsCols * rowsCols) + (18359/98040) * (rowsCols) + (17754/817));
     timeLimit = parseInt((timeLimitHalf1 + timeLimitHalf2) / 2);
 
-    createGame(rows, cols, bombs, mode, timeLimit);
+    createGame(currentUser.username, rows, cols, bombs, mode, timeLimit);
     window.location.href = 'game.html'
 });
 

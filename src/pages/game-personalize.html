@@ -13,7 +13,7 @@
             <h2>CampoMinado!</h2>
         </div>
 
-        <nav class="menu">
+        <nav>
             <a href="game-selection.html"><b>Jogo</b></a>
             <a href="ranking.html">Ranking geral</a>
             <a href="edit-profile.html">Editar conta</a>
@@ -35,17 +35,17 @@
                 <form action="personalize" id="game-personalize" method="post" class="form-field-line">
                     <div class="form-field">
                         <label for="row">Linhas</label>
-                        <input type="number" min="2" id="row" name="row" placeholder="00" required>
+                        <input type="number" min="3" id="row" name="row" placeholder="03" required>
                     </div>
 
                     <div class="form-field">
                         <label for="column">Colunas</label>
-                        <input type="number" min="2" id="column" name="column" placeholder="00" required>
+                        <input type="number" min="3" id="column" name="column" placeholder="03" required>
                     </div>   
                     
                     <div class="form-field">
                         <label for="bomb">Bombas</label>
-                        <input type="number" min="1" id="bomb" name="bomb" placeholder="00" required>
+                        <input type="number" min="1" id="bomb" name="bomb" placeholder="01" required>
                     </div>                               
                 </form>    
 
@@ -83,7 +83,8 @@
         <img class="logo-footer" src="../images/logo-ft.png" alt="Logo FT">
     </footer>
 
-    <script type="module" src="../javascript/start-game-personalize.js"></script>
-    <script type="module" src="../javascript/game-data-utils.js"></script>
+    <script src="../javascript/game-data-utils.js"></script>
+    <script src="../javascript/user-data-utils.js"></script>
+    <script src="../javascript/start-game-personalize.js"></script>
 </body>
 </html>
