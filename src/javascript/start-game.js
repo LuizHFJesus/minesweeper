@@ -7,7 +7,7 @@ const startIntermediateRivotrilGame = document.getElementById('intermediate-rivo
 const startAdvancedClassicGame = document.getElementById('advanced-classic');
 const startAdvancedRivotrilGame = document.getElementById('advanced-rivotril');
 
-const currentUser = getCurrentUser();
+const currentUser = await getCurrentUser();
 
 startBegginerClassicGame.addEventListener('click', (event) => {
     event.preventDefault(); 

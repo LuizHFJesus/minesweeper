@@ -9,13 +9,13 @@ async function handleUserLogin(event) {
     const emailOrUsername = form.emailOrUsername.value.trim();
     const password = form.password.value.trim();
 
-    const user = findUser(emailOrUsername);
+    const user = await findUser(emailOrUsername);
     const hashedPassword = await hashPassword(password);
     if (!user || user.password !== hashedPassword) {
         alert("E-mail, nome de usuário ou senha inválidos!");
         return;
     }
-    setCurrentUser(user);
+    await setCurrentUser(user);
 
     window.location.href = 'game-selection.html';
 }

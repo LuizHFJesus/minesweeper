@@ -1,39 +1,54 @@
 'use strict';
 
-function getCurrentUser() {
-    return JSON.parse(localStorage.getItem('currentUser'));
+const GET_CURRENT_USER = 'GET_CURRENT_USER';
+const SET_CURRENT_USER = 'SET_CURRENT_USER';
+const REMOVE_CURRENT_USER = 'REMOVE_CURRENT_USER';
+const GET_USERS = 'GET_USERS';
+const SAVE_USERS = 'SAVE_USERS';
+const FIND_USER = 'FIND_USER';
+const UPDATE_USER = 'UPDATE_USER';
+
+async function ajaxRequest(action, data = {}) {
+    data.action = action;
+
+    const response = await fetch('http://localhost/minesweeper/src/php/user_storage.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(data),
+    });
+
+    return response.json();
 }
 
-function setCurrentUser(user) {
-    localStorage.setItem('currentUser', JSON.stringify(user));
+async function getCurrentUser() {
+    const response = await ajaxRequest(GET_CURRENT_USER);
+    return JSON.parse(response.currentUser) || null;
 }
 
-function removeCurrentUser() {
-    localStorage.removeItem('currentUser');
+async function setCurrentUser(user) {
+    await ajaxRequest(SET_CURRENT_USER, { user: JSON.stringify(user) });
 }
 
-function getUsers() {
-    return JSON.parse(localStorage.getItem('users')) || [];
+async function removeCurrentUser() {
+    await ajaxRequest(REMOVE_CURRENT_USER);
 }
 
-function saveUsers(users) {
-    localStorage.setItem('users', JSON.stringify(users));
+async function getUsers() {
+    const response = await ajaxRequest(GET_USERS);
+    return response.users || [];
 }
 
-function findUser(cpfOrEmailOrUsername) {
-    const users = getUsers();
-    return users.find(user => 
-        user.cpf === cpfOrEmailOrUsername || 
-        user.username === cpfOrEmailOrUsername ||
-        user.email === cpfOrEmailOrUsername
-    );
+async function saveUsers(users) {
+    await ajaxRequest(SAVE_USERS, { users: JSON.stringify(users) });
 }
 
-function updateUser(updatedUser) {
-    const users = getUsers();
-    const index = users.findIndex(user => user.username === updatedUser.username);
-    users[index] = updatedUser;
-    saveUsers(users);
+async function findUser(cpfOrEmailOrUsername) {
+    const response = await ajaxRequest(FIND_USER, { cpfOrEmailOrUsername });
+    return response.user || null
+}
+
+async function updateUser(updatedUser) {
+    await ajaxRequest(UPDATE_USER, { updatedUser: JSON.stringify(updatedUser) });
 }
 
 async function hashPassword(password) {

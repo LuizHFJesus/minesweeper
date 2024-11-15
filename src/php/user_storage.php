@@ -1,4 +1,6 @@
 <?php
+    session_start();
+
     const FILE_PATH = '../data/user_data.json';
 
     const GET_CURRENT_USER = 'GET_CURRENT_USER';
@@ -6,6 +8,7 @@
     const REMOVE_CURRENT_USER = 'REMOVE_CURRENT_USER';
     const GET_USERS = 'GET_USERS';
     const SAVE_USERS = 'SAVE_USERS';
+    const FIND_USER = 'FIND_USER';
     const UPDATE_USER = 'UPDATE_USER';
 
     $response = null;
@@ -25,7 +28,6 @@
 
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $action = $_POST['action'];
-        global $response
         $response = ['status' => 'error', 'message' => 'Invalid action'];
 
         switch($action) {
@@ -58,52 +60,61 @@
     }
 
     function getCurrentUser() { 
+        global $response;
         $currentUser = $_SESSION['currentUser'] ?? null;
-        global $response = ['status' => 'success', 'currentUser' => $currentUser];
+        $response = ['status' => 'success', 'currentUser' => $currentUser];
     }
 
     function setCurrentUser() {
-        session_start();
+        global $response;
         $_SESSION['currentUser'] = $_POST['user'];
-        global $response = ['status' => 'success'];
+        $response = ['status' => 'success'];
     }
 
     function removeCurrentUser() {
-        session_start();
+        global $response;
         unset($_SESSION['currentUser']);
-        global $response = ['status' => 'success'];
+        $response = ['status' => 'success'];
     }
 
     function getUsers() {
-        global $response = ['status' => 'success', 'users' => getUsersFromJson()];
+        global $response;
+        $response = ['status' => 'success', 'users' => getUsersFromJson()];
     }
 
     function saveUsers() {
-        saveUsersToJson($_POST['users']);
-        global $response = ['status' => 'success'];
+        global $response;
+        saveUsersToJson(json_decode($_POST['users'], true));
+        $response = ['status' => 'success'];
     }
 
     function findUser() {
-        $users = getUsers();
+        global $response;
+        $users = getUsersFromJson();
+
         $search = $_POST['cpfOrEmailOrUsername'];
         $user = array_filter($users, fn($user) => 
             $user['cpf'] === $search || 
             $user['username'] === $search || 
             $user['email'] === $search
         );
-       global $response = ['status' => 'success', 'user' => reset($user) ?: null];
+
+        $response = ['status' => 'success', 'user' => reset($user) ?: null];
     }
 
     function updateUser() {
-        $users = getUsers();
-        $updatedUser = $_POST['updatedUser'];
+        global $response;
+        $users = getUsersFromJson();
+        
+        $updatedUser = json_decode($_POST['updatedUser'], true);
         foreach ($users as &$user) {
             if ($user['username'] === $updatedUser['username']) {
                 $user = $updatedUser;
                 break;
             }
         }
-        saveUsers($users);
-        global $response = ['status' => 'success'];
+
+        saveUsersToJson($users);
+        $response = ['status' => 'success'];
     }
 ?>

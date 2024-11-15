@@ -1,6 +1,6 @@
 'use strict';
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', async () => {
     removeCurrentGame();
-    removeCurrentUser();
+    await removeCurrentUser();
 });

@@ -5,7 +5,7 @@ const startPersonalizedRivotrilGame = document.getElementById('personalized-rivo
 
 const gamePersonalizeForm = document.getElementById('game-personalize');
 
-const currentUser = getCurrentUser();
+const currentUser = await getCurrentUser();
 
 startPersonalizedClassicGame.addEventListener('click', (event) => {
     event.preventDefault(); 

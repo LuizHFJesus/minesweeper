@@ -31,19 +31,19 @@ async function handleUserRegister(event) {
         return;
     }
 
-    const users = getUsers();
+    const users = await getUsers();
 
-    if (findUser(user.cpf)) {
+    if (await findUser(user.cpf)) {
         alert('Este CPF já está em uso!');
         return;
     }
 
-    if (findUser(user.username)) {
+    if (await findUser(user.username)) {
         alert('Este nome de usuário já está em uso!');
         return;
     }
 
-    if (findUser(user.email)) {
+    if (await findUser(user.email)) {
         alert('Este e-mail já está em uso!');
         return;
     }
@@ -52,8 +52,8 @@ async function handleUserRegister(event) {
     user.password = hashedPassword;
 
     users.push(user);
-    saveUsers(users);
-    setCurrentUser(user);
+    await saveUsers(users);
+    await setCurrentUser(user);
 
     window.location.href = 'game-selection.html';
 }
