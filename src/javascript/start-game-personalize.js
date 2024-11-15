@@ -52,8 +52,8 @@ function shouldStartGamePersonalize (bombs, rows, cols) {
         return false;
     }
 
-    if (bombs > ((cols*rows)+1)) {
-        alert('Por favor, insira um numero de bombas inferiro ao numero de celulas no jogo!');
+    if (bombs >= ((cols*rows))) {
+        alert('Por favor, insira um numero de bombas inferior ao numero de células no jogo!');
         return false;
     }
 
