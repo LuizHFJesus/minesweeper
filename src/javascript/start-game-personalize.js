@@ -5,9 +5,7 @@ const startPersonalizedRivotrilGame = document.getElementById('personalized-rivo
 
 const gamePersonalizeForm = document.getElementById('game-personalize');
 
-const currentUser = await getCurrentUser();
-
-startPersonalizedClassicGame.addEventListener('click', (event) => {
+startPersonalizedClassicGame.addEventListener('click', async (event) => {
     event.preventDefault(); 
 
     const rows = Number(gamePersonalizeForm.row.value.trim());
@@ -19,11 +17,12 @@ startPersonalizedClassicGame.addEventListener('click', (event) => {
     const confirmStart = shouldStartGamePersonalize(bombs, rows, cols);
     if (!confirmStart) return;
 
+    const currentUser = await getCurrentUser();
     createGame(currentUser.username, rows, cols, bombs, mode, timeLimit);
     window.location.href = 'game.html'
 });
 
-startPersonalizedRivotrilGame.addEventListener('click', (event) => {
+startPersonalizedRivotrilGame.addEventListener('click', async (event) => {
     event.preventDefault(); 
 
     const rows = Number(gamePersonalizeForm.row.value.trim());
@@ -42,6 +41,7 @@ startPersonalizedRivotrilGame.addEventListener('click', (event) => {
     timeLimitHalf2 = parseInt((1427/392160) * (rowsCols * rowsCols) + (18359/98040) * (rowsCols) + (17754/817));
     timeLimit = parseInt((timeLimitHalf1 + timeLimitHalf2) / 2);
 
+    const currentUser = await getCurrentUser();
     createGame(currentUser.username, rows, cols, bombs, mode, timeLimit);
     window.location.href = 'game.html'
 });

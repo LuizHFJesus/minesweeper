@@ -7,9 +7,7 @@ const startIntermediateRivotrilGame = document.getElementById('intermediate-rivo
 const startAdvancedClassicGame = document.getElementById('advanced-classic');
 const startAdvancedRivotrilGame = document.getElementById('advanced-rivotril');
 
-const currentUser = await getCurrentUser();
-
-startBegginerClassicGame.addEventListener('click', (event) => {
+startBegginerClassicGame.addEventListener('click', async (event) => {
     event.preventDefault(); 
 
     const rows = 8; 
@@ -18,11 +16,12 @@ startBegginerClassicGame.addEventListener('click', (event) => {
     const mode = 'classico'; 
     const timeLimit = null; 
 
+    const currentUser = await getCurrentUser();
     createGame(currentUser.username, rows, cols, bombs, mode, timeLimit);
     window.location.href = 'game.html'
 });
 
-startBegginerRivotrilGame.addEventListener('click', (event) => {
+startBegginerRivotrilGame.addEventListener('click', async (event) => {
     event.preventDefault(); 
 
     const rows = 8; 
@@ -31,11 +30,12 @@ startBegginerRivotrilGame.addEventListener('click', (event) => {
     const mode = 'rivotril'; 
     const timeLimit = 60; 
 
+    const currentUser = await getCurrentUser();
     createGame(currentUser.username, rows, cols, bombs, mode, timeLimit);
     window.location.href = 'game.html'
 });
 
-startIntermediateClassicGame.addEventListener('click', (event) => {
+startIntermediateClassicGame.addEventListener('click', async (event) => {
     event.preventDefault(); 
 
     const rows = 15; 
@@ -44,11 +44,12 @@ startIntermediateClassicGame.addEventListener('click', (event) => {
     const mode = 'classico'; 
     const timeLimit = null; 
 
+    const currentUser = await getCurrentUser();
     createGame(currentUser.username, rows, cols, bombs, mode, timeLimit);
     window.location.href = 'game.html'
 });
 
-startIntermediateRivotrilGame.addEventListener('click', (event) => {
+startIntermediateRivotrilGame.addEventListener('click', async (event) => {
     event.preventDefault(); 
 
     const rows = 15; 
@@ -57,11 +58,12 @@ startIntermediateRivotrilGame.addEventListener('click', (event) => {
     const mode = 'rivotril'; 
     const timeLimit = 300; 
 
+    const currentUser = await getCurrentUser();
     createGame(currentUser.username, rows, cols, bombs, mode, timeLimit);
     window.location.href = 'game.html'
 });
 
-startAdvancedClassicGame.addEventListener('click', (event) => {
+startAdvancedClassicGame.addEventListener('click', async (event) => {
     event.preventDefault(); 
 
     const rows = 20; 
@@ -70,11 +72,12 @@ startAdvancedClassicGame.addEventListener('click', (event) => {
     const mode = 'classico'; 
     const timeLimit = null; 
 
+    const currentUser = await getCurrentUser();
     createGame(currentUser.username, rows, cols, bombs, mode, timeLimit);
     window.location.href = 'game.html'
 });
 
-startAdvancedRivotrilGame.addEventListener('click', (event) => {
+startAdvancedRivotrilGame.addEventListener('click', async (event) => {
     event.preventDefault(); 
 
     const rows = 20; 
@@ -83,6 +86,7 @@ startAdvancedRivotrilGame.addEventListener('click', (event) => {
     const mode = 'rivotril'; 
     const timeLimit = 900; 
 
+    const currentUser = await getCurrentUser();
     createGame(currentUser.username, rows, cols, bombs, mode, timeLimit);
     window.location.href = 'game.html'
 });
