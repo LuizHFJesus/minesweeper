@@ -16,8 +16,8 @@ CREATE TABLE users (
 CREATE TABLE games (
     id INT AUTO_INCREMENT PRIMARY KEY,
     username VARCHAR(12) NOT NULL,
-    rows INT NOT NULL,
-    cols INT NOT NULL,
+    `rows` INT NOT NULL,
+    `cols` INT NOT NULL,
     bombs INT NOT NULL,
     mode VARCHAR(10) NOT NULL,
     time_limit INT NOT NULL,
