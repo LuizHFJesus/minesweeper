@@ -8,6 +8,7 @@
     const REMOVE_CURRENT_USER = 'REMOVE_CURRENT_USER';
     const GET_USERS = 'GET_USERS';
     const SAVE_USERS = 'SAVE_USERS';
+    const DELETE_USER = 'DELETE_USER';
     const FIND_USER = 'FIND_USER';
     const UPDATE_USER = 'UPDATE_USER';
 
@@ -45,6 +46,9 @@
                 break;
             case SAVE_USERS:
                 saveUsers();
+                break;
+            case DELETE_USER:
+                deleteUser();
                 break;
             case FIND_USER:
                 findUser();
@@ -85,6 +89,15 @@
     function saveUsers() {
         global $response;
         saveUsersToJson(json_decode($_POST['users'], true));
+        $response = ['status' => 'success'];
+    }
+
+    function deleteUser() {
+        global $response;
+        $users = getUsersFromJson();
+        $username = $_POST['username'];
+        $users = array_filter($users, fn($user) => $user['username'] !== $username);
+        saveUsersToJson($users);
         $response = ['status' => 'success'];
     }
 

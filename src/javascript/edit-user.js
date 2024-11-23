@@ -68,9 +68,7 @@ async function handleDeleteAccount() {
         return;
     }
 
-    let users = await getUsers();
-    users = users.filter(user => user.username !== currentUser.username);
-    await saveUsers(users);
+    await deleteUser(currentUser.username);
     await removeCurrentUser();
 
     let games = getGames();
