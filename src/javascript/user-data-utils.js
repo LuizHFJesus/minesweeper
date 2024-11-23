@@ -4,6 +4,7 @@ const GET_CURRENT_USER = 'GET_CURRENT_USER';
 const SET_CURRENT_USER = 'SET_CURRENT_USER';
 const REMOVE_CURRENT_USER = 'REMOVE_CURRENT_USER';
 const GET_USERS = 'GET_USERS';
+const CREATE_USER = 'CREATE_USER';
 const DELETE_USER = 'DELETE_USER';
 const SAVE_USERS = 'SAVE_USERS';
 const FIND_USER = 'FIND_USER';
@@ -39,8 +40,8 @@ async function getUsers() {
     return response.users || [];
 }
 
-async function saveUsers(users) {
-    await ajaxRequest(SAVE_USERS, { users: JSON.stringify(users) });
+async function createUser(user) {
+    await ajaxRequest(CREATE_USER, { user: JSON.stringify(user) });
 }
 
 async function deleteUser(username) {

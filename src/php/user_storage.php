@@ -7,6 +7,7 @@
     const SET_CURRENT_USER = 'SET_CURRENT_USER';
     const REMOVE_CURRENT_USER = 'REMOVE_CURRENT_USER';
     const GET_USERS = 'GET_USERS';
+    const CREATE_USER = 'CREATE_USER';
     const SAVE_USERS = 'SAVE_USERS';
     const DELETE_USER = 'DELETE_USER';
     const FIND_USER = 'FIND_USER';
@@ -44,8 +45,8 @@
             case GET_USERS:
                 getUsers();
                 break;
-            case SAVE_USERS:
-                saveUsers();
+            case CREATE_USER:
+                createUser();
                 break;
             case DELETE_USER:
                 deleteUser();
@@ -86,9 +87,12 @@
         $response = ['status' => 'success', 'users' => getUsersFromJson()];
     }
 
-    function saveUsers() {
+    function createUser() {
         global $response;
-        saveUsersToJson(json_decode($_POST['users'], true));
+        $users = getUsersFromJson();
+        $user = json_decode($_POST['user'], true);
+        $users[] = $user;
+        saveUsersToJson($users);
         $response = ['status' => 'success'];
     }
 

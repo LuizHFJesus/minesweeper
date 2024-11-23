@@ -31,8 +31,6 @@ async function handleUserRegister(event) {
         return;
     }
 
-    const users = await getUsers();
-
     if (await findUser(user.cpf)) {
         alert('Este CPF já está em uso!');
         return;
@@ -51,8 +49,7 @@ async function handleUserRegister(event) {
     const hashedPassword = await hashPassword(user.password);
     user.password = hashedPassword;
 
-    users.push(user);
-    await saveUsers(users);
+    await createUser(user);
     await setCurrentUser(user);
 
     window.location.href = 'game-selection.html';
