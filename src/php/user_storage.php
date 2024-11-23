@@ -1,7 +1,6 @@
 <?php
     session_start();
-
-    const FILE_PATH = '../data/user_data.json';
+    require_once 'db_connection.php';
 
     const GET_CURRENT_USER = 'GET_CURRENT_USER';
     const SET_CURRENT_USER = 'SET_CURRENT_USER';
@@ -14,19 +13,6 @@
     const UPDATE_USER = 'UPDATE_USER';
 
     $response = null;
-
-    if (!file_exists(FILE_PATH)) {
-        file_put_contents(FILE_PATH, json_encode([]));
-    }
-
-    function getUsersFromJson() {
-        $data = file_get_contents(FILE_PATH);
-        return json_decode($data, true) ?: [];
-    }
-
-    function saveUsersToJson($users) {
-        file_put_contents(FILE_PATH, json_encode($users, JSON_PRETTY_PRINT));
-    }
 
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $action = $_POST['action'];
@@ -84,54 +70,92 @@
 
     function getUsers() {
         global $response;
-        $response = ['status' => 'success', 'users' => getUsersFromJson()];
+
+        $pdo = getDatabaseConnection();
+        $stmt = $pdo->query("SELECT * FROM users");
+        $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        $response = ['status' => 'success', 'users' => $users];
     }
 
     function createUser() {
         global $response;
-        $users = getUsersFromJson();
+
+        $pdo = getDatabaseConnection();
         $user = json_decode($_POST['user'], true);
-        $users[] = $user;
-        saveUsersToJson($users);
-        $response = ['status' => 'success'];
+
+        try {
+            $stmt = $pdo->prepare("
+                INSERT INTO users (name, cpf, dob, username, tel, email, password)
+                VALUES (:name, :cpf, :dob, :username, :tel, :email, :password)
+            ");
+
+            $stmt->execute([
+                'name' => $user['name'],
+                'cpf' => $user['cpf'],
+                'dob' => $user['dob'],
+                'username' => $user['username'],
+                'tel' => $user['tel'],
+                'email' => $user['email'],
+                'password' => $user['password']
+            ]);
+
+            $response = ['status' => 'success'];
+        } catch (PDOException $e) {
+            $response = ['status' => 'error', 'message' => $e->getMessage()];
+        }
     }
 
     function deleteUser() {
         global $response;
-        $users = getUsersFromJson();
+    
+        $pdo = getDatabaseConnection();
         $username = $_POST['username'];
-        $users = array_filter($users, fn($user) => $user['username'] !== $username);
-        saveUsersToJson($users);
+    
+        $stmt = $pdo->prepare("DELETE FROM users WHERE username = :username");
+        $stmt->execute(['username' => $username]);
+    
         $response = ['status' => 'success'];
     }
 
     function findUser() {
         global $response;
-        $users = getUsersFromJson();
-
+    
+        $pdo = getDatabaseConnection();
         $search = $_POST['cpfOrEmailOrUsername'];
-        $user = array_filter($users, fn($user) => 
-            $user['cpf'] === $search || 
-            $user['username'] === $search || 
-            $user['email'] === $search
-        );
-
-        $response = ['status' => 'success', 'user' => reset($user) ?: null];
+    
+        $stmt = $pdo->prepare("
+            SELECT * FROM users 
+            WHERE cpf = :search OR username = :search OR email = :search
+        ");
+        $stmt->execute(['search' => $search]);
+    
+        $user = $stmt->fetch(PDO::FETCH_ASSOC);
+    
+        $response = ['status' => 'success', 'user' => $user ?: null];
     }
 
     function updateUser() {
         global $response;
-        $users = getUsersFromJson();
-        
+    
+        $pdo = getDatabaseConnection();
         $updatedUser = json_decode($_POST['updatedUser'], true);
-        foreach ($users as &$user) {
-            if ($user['username'] === $updatedUser['username']) {
-                $user = $updatedUser;
-                break;
-            }
-        }
-
-        saveUsersToJson($users);
+    
+        $stmt = $pdo->prepare("
+            UPDATE users 
+            SET name = :name, cpf = :cpf, dob = :dob, tel = :tel, email = :email, password = :password
+            WHERE username = :username
+        ");
+        $stmt->execute([
+            'name' => $updatedUser['name'],
+            'cpf' => $updatedUser['cpf'],
+            'dob' => $updatedUser['dob'],
+            'tel' => $updatedUser['tel'],
+            'email' => $updatedUser['email'],
+            'password' => $updatedUser['password'],
+            'username' => $updatedUser['username']
+        ]);
+    
         $response = ['status' => 'success'];
-    }
+    }    
 ?>
