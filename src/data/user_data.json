@@ -1,1 +1,11 @@
-[]
+[
+    {
+        "name": "Leonardo Rodrigues da Silva",
+        "cpf": "43261861860",
+        "dob": "2004-08-26",
+        "username": "Leonardo",
+        "tel": "17991411611",
+        "email": "leonardo.silva@liestag.com.br",
+        "password": "9904b43385c2f060824eb8585fde3a17fb708e89d688c3edc61272146d8197ca"
+    }
+]

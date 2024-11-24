@@ -1,0 +1,68 @@
+[
+    {
+        "username": "Leonardo",
+        "rows": 8,
+        "cols": 10,
+        "bombs": 10,
+        "mode": "classico",
+        "timeLimit": null,
+        "datetime": "21\/11\/2024 16:04",
+        "time": 3,
+        "won": false
+    },
+    {
+        "username": "Leonardo",
+        "rows": 8,
+        "cols": 10,
+        "bombs": 10,
+        "mode": "classico",
+        "timeLimit": null,
+        "datetime": "21\/11\/2024 16:05",
+        "time": 3,
+        "won": false
+    },
+    {
+        "username": "Leonardo",
+        "rows": 8,
+        "cols": 10,
+        "bombs": 10,
+        "mode": "classico",
+        "timeLimit": null,
+        "datetime": "24\/11\/2024 11:21",
+        "time": 1,
+        "won": false
+    },
+    {
+        "username": "Leonardo",
+        "rows": 8,
+        "cols": 10,
+        "bombs": 10,
+        "mode": "classico",
+        "timeLimit": null,
+        "datetime": "24\/11\/2024 11:47",
+        "time": 3,
+        "won": false
+    },
+    {
+        "username": "Leonardo",
+        "rows": 8,
+        "cols": 10,
+        "bombs": 10,
+        "mode": "classico",
+        "timeLimit": null,
+        "datetime": "24\/11\/2024 12:13",
+        "time": 0,
+        "won": false
+    },
+    {
+        "username": "Leonardo",
+        "rows": 8,
+        "cols": 10,
+        "bombs": 10,
+        "mode": "classico",
+        "timeLimit": null,
+        "datetime": "24\/11\/2024 12:17",
+        "time": 0,
+        "won": false
+    }
+]

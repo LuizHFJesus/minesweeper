@@ -1,5 +1,24 @@
 'use strict';
 
+const GET_GAMES = 'GET_GAMES';
+const SAVE_GAMES = 'SAVE_GAMES';
+const ADD_GAME = 'ADD_GAME';
+const FIND_GAMES_BY_USERNAME = 'FIND_GAMES_BY_USERNAME';
+
+
+
+async function ajaxRequest(action, data = {}) {
+    data.action = action;
+
+    const response = await fetch('http://localhost/minesweeper/src/php/game_storage.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(data),
+    });
+
+    return response.json();
+}
+
 function createGame(username, rows, cols, bombs, mode, timeLimit) {
     var gameData = {
         username: username,
@@ -15,21 +34,44 @@ function createGame(username, rows, cols, bombs, mode, timeLimit) {
 
     setCurrentGame(gameData);
 }
+const GameStorage = {
+    async getGames() {
+        const response = await ajaxRequest(GET_GAMES);
+        return response.games || [];
+    },
+    async saveGames(games) {
+        await ajaxRequest(SAVE_GAMES, { games: JSON.stringify(games) });
+    },
+    async addGame(game) {
+        let games = await this.getGames();
+        games.push(game);
+        await this.saveGames(games);
+    },
+    async findGamesByUsername(username) {
+        const response = await ajaxRequest(FIND_GAMES_BY_USERNAME, { username });
+        return response.games || [];
+    }
+};
 
-function saveGame(won, time) {
+
+async function saveGame(won, time) {
     let currentGame = getCurrentGame();
 
     currentGame.datetime = formatDate(new Date());
     currentGame.time = time;
-    currentGame.won = won;
-    
-    let games = getGames(); 
-    games.push(currentGame);
-    saveGames(games);
+    currentGame.won = won;   
+
+    try {
+        await GameStorage.addGame(currentGame);
+        console.log('Jogo salvo com sucesso no servidor!');
+    } catch (error) {
+        console.error('Erro ao salvar o jogo no servidor:', error);
+    }
 }
 
+
 function getCurrentGame() {
-    return JSON.parse(localStorage.getItem('currentGame') ?? 'null');
+    return JSON.parse(localStorage.getItem('currentGame') ?? 'null');
 }
 
 function removeCurrentGame() {
