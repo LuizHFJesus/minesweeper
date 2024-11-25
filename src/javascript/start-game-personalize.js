@@ -5,6 +5,15 @@ const startPersonalizedRivotrilGame = document.getElementById('personalized-rivo
 
 const gamePersonalizeForm = document.getElementById('game-personalize');
 
+document.addEventListener('DOMContentLoaded', async () => {
+    const currentUser = await getCurrentUser();
+    if (!currentUser) {
+        alert('Você precisa estar logado para acessar essa página!');
+        window.location.href = '../../index.html';
+    }
+});
+
+
 startPersonalizedClassicGame.addEventListener('click', async (event) => {
     event.preventDefault(); 
 
