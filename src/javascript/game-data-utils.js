@@ -53,9 +53,7 @@ function saveGame(won, time) {
 }
 
 async function getGames(username) {
-    console.log("getGames=", username);
     const response = await _ajaxRequest(GET_GAMES_BY_USERNAME, { username });
-    console.log("response=", response);
     return response.games || [];
 }
 
