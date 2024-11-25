@@ -62,7 +62,7 @@
         $username = $_POST['username'];
 
         $stmt = $pdo->prepare("
-            SELECT * FROM games WHERE username = :username
+            SELECT * FROM games WHERE username = :username ORDER BY id DESC
         ");
 
         $stmt->execute(['username' => $username]);
