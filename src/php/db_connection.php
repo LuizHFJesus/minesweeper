@@ -1,8 +1,12 @@
 <?php
-const DB_HOST = 'localhost';
-const DB_NAME = 'minesweeper';
-const DB_USER = 'root';
-const DB_PASS = ''; // Adjust if you have a password in MySQL
+/*
+ * Database configuration constants
+ * Update these values according to your MySQL setup
+ */
+const DB_HOST = 'localhost'; // Hostname for the database server
+const DB_NAME = 'minesweeper'; // Name of the database
+const DB_USER = 'root'; // Username for the database
+const DB_PASS = ''; // Password for the database (leave empty if none)
 
 function getDatabaseConnection() {
     try {
