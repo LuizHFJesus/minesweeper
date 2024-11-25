@@ -2,8 +2,14 @@
 const classicRankingBody = document.getElementById('classic-ranking');
 const rivotrilRankingBody = document.getElementById('rivotril-ranking');
 
-document.addEventListener('DOMContentLoaded', function() {
-    const classicRankingGames = getGamesRanking("classico");
+document.addEventListener('DOMContentLoaded', async function() {
+    const currentUser = await getCurrentUser();
+    if (!currentUser) {
+        alert('Você precisa estar logado para acessar essa página!');
+        window.location.href = '../../index.html';
+    }
+
+    const classicRankingGames = await getGamesRanking("classico");
     let position = 1;
     for (let game of classicRankingGames) {
         const isClassicMode = game.mode == "classico"
@@ -21,7 +27,7 @@ document.addEventListener('DOMContentLoaded', function() {
         classicRankingBody.appendChild(tr);
     }
 
-    const rivotrilRankingGames = getGamesRanking("rivotril");
+    const rivotrilRankingGames = await getGamesRanking("rivotril");
     position = 1;
     for (let game of rivotrilRankingGames) {
         const isClassicMode = game.mode == "classico"

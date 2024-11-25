@@ -2,14 +2,15 @@
 
 const gameHistoryBody = document.getElementById('game-history');
 
-document.addEventListener('DOMContentLoaded', function() {
-    const currentUser = getCurrentUser();
+document.addEventListener('DOMContentLoaded', async function() {
+    const currentUser = await getCurrentUser();
     if (!currentUser) {
         alert('Você precisa estar logado para acessar essa página!');
         window.location.href = '../../index.html';
     }
 
-    const games = getGamesByUsername(currentUser.username);
+    
+    const games = await getGames(currentUser.username);
 
     for (let game of games) {
         const isClassicMode = game.mode == "classico"

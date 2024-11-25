@@ -20,7 +20,7 @@ let isCheatEnabled = false;
 let timer = null;
 let time = 0;
 
-document.addEventListener('DOMContentLoaded', () => initializeGame());
+document.addEventListener('DOMContentLoaded', async () => await initializeGame());
 
 document.querySelector('#game-board').addEventListener('contextmenu', function(event) {
     event.preventDefault();
@@ -111,8 +111,12 @@ function handleCheatButton() {
 }
 
 
-function initializeGame() {
-    if (!game) {
+async function initializeGame() {
+    const currentUser = await getCurrentUser();
+    if (!currentUser) {
+        alert('Você precisa estar logado para acessar essa página!');
+        window.location.href = '../../index.html';
+    } else if (!game) {
         alert('Jogo não encontrado!');
         window.location.href = 'game-selection.html';
     }

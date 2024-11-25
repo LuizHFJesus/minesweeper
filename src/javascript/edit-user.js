@@ -5,8 +5,9 @@ const deleteAccountButton = document.getElementById("delete-account");
 
 let currentUser = null;
 
-document.addEventListener('DOMContentLoaded', () => {
-    currentUser = getCurrentUser();
+document.addEventListener('DOMContentLoaded', async () => {
+    currentUser = await getCurrentUser();
+    
     if (!currentUser) {
         alert('Você precisa estar logado para acessar essa página!');
         window.location.href = '../../index.html';
@@ -47,8 +48,8 @@ async function handleUserEdit(event) {
         password: currentUser.password
     }
 
-    setCurrentUser(updatedUser);
-    updateUser(updatedUser);
+    await setCurrentUser(updatedUser);
+    await updateUser(updatedUser);
 
     alert("Dados atualizados com sucesso!");
 }
@@ -67,15 +68,7 @@ async function handleDeleteAccount() {
         return;
     }
 
-    let users = getUsers();
-    users = users.filter(user => user.username !== currentUser.username);
-    saveUsers(users);
-    removeCurrentUser();
-
-    let games = getGames();
-    games = games.filter(game => game.username !== currentUser.username);
-    saveGames(games);
-    removeCurrentGame();
+    await deleteUser(currentUser.username);
 
     alert("Conta excluída com sucesso!");
     window.location.replace("../../index.html");
