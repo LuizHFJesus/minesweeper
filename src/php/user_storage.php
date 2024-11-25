@@ -16,7 +16,7 @@
 
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $action = $_POST['action'];
-        $response = ['status' => 'error', 'message' => 'Invalid action'];
+        $response = ['status' => 'error', 'message' => 'Invalid action: ' . $_POST['action']];
 
         switch($action) {
             case GET_CURRENT_USER:

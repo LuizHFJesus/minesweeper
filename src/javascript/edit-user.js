@@ -69,12 +69,6 @@ async function handleDeleteAccount() {
     }
 
     await deleteUser(currentUser.username);
-    await removeCurrentUser();
-
-    let games = getGames();
-    games = games.filter(game => game.username !== currentUser.username);
-    saveGames(games);
-    removeCurrentGame();
 
     alert("Conta excluída com sucesso!");
     window.location.replace("../../index.html");

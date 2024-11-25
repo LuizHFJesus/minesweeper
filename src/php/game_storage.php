@@ -1,94 +1,99 @@
 <?php
-session_start();
+    session_start();
 
-const GAME_FILE_PATH = '../data/game_data.json';
-const GET_GAMES = 'GET_GAMES';
-const SAVE_GAMES = 'SAVE_GAMES';
-const ADD_GAME = 'ADD_GAME';
-const FIND_GAMES_BY_USERNAME = 'FIND_GAMES_BY_USERNAME';
+    require_once 'db_connection.php';
 
-if (!file_exists(GAME_FILE_PATH)) {
-    file_put_contents(GAME_FILE_PATH, json_encode([]));
-}
+    const SAVE_GAME = 'SAVE_GAME';
+    const GET_GAMES_BY_USERNAME = 'GET_GAMES_BY_USERNAME';
+    const GET_GAMES_RANKING_BY_MODE = 'GET_GAMES_RANKING_BY_MODE';
 
-function getGamesFromJson() {
-    $data = file_get_contents(GAME_FILE_PATH);
-    return json_decode($data, true) ?: [];
-}
+    $response = null;
 
-function saveGamesToJson($games) {
-    file_put_contents(GAME_FILE_PATH, json_encode($games, JSON_PRETTY_PRINT));
-}
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        $action = $_POST['action'];
+        $response = ['status' => 'error', 'message' => 'Invalid action: ' . $_POST['action']];
 
-function getGames() {
-    global $response;
-    $response = ['status' => 'success', 'games' => getGamesFromJson()];
-}
+        switch ($action) {
+            case SAVE_GAME:
+                saveGame();
+                break;
+            case GET_GAMES_BY_USERNAME:
+                getGamesByUsername();
+                break;
+            case GET_GAMES_RANKING_BY_MODE:
+                getGamesRankingByMode();
+                break;
+        }
 
-function saveGames() {
-    global $response;
-    saveGamesToJson(json_decode($_POST['games'], true));
-    $response = ['status' => 'success'];
-}
-
-function addGame() {
-    global $response;
-
-    if (!isset($_POST['game'])) {
-        $response = ['status' => 'error', 'message' => 'No game data provided'];
-        return;
-    }
-
-    $newGame = json_decode($_POST['game'], true);
-
-    if (!is_array($newGame)) {
-        $response = ['status' => 'error', 'message' => 'Invalid game data'];
-        return;
-    }
-
-    $games = getGamesFromJson();
-    $games[] = $newGame;
-
-    saveGamesToJson($games);
-    $response = ['status' => 'success'];
-}
-
-function findGamesByUsername() {
-    global $response;
-    $username = $_POST['username'];
-    $games = getGamesFromJson();
-    $userGames = array_filter($games, fn($game) => $game['username'] === $username);
-    $response = ['status' => 'success', 'games' => array_values($userGames)];
-}
-
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $action = $_POST['action'] ?? null;
-
-    if (!$action) {
         header('Content-Type: application/json');
-        echo json_encode(['status' => 'error', 'message' => 'No action provided']);
+        echo json_encode($response);
         exit;
     }
 
-    $response = ['status' => 'error', 'message' => 'Invalid action'];
+    function saveGame() {
+        global $response;
 
-    switch ($action) {
-        case GET_GAMES:
-            getGames();
-            break;
-        case SAVE_GAMES:
-            saveGames();
-            break;
-        case ADD_GAME:
-            addGame();
-            break;
-        case FIND_GAMES_BY_USERNAME:
-            findGamesByUsername();
-            break;
+        $pdo = getDatabaseConnection();
+        $game = json_decode($_POST['game'], true);
+
+        $stmt = $pdo->prepare("
+            INSERT INTO games (username, `rows`, `cols`, bombs, mode, timeLimit, time, won)
+            VALUES (:username, :rows, :cols, :bombs, :mode, :timeLimit, :time, :won)
+        ");
+
+        $stmt->execute([
+            'username' => $game['username'],
+            'rows' => $game['rows'],
+            'cols' => $game['cols'],
+            'bombs' => $game['bombs'],
+            'mode' => $game['mode'],
+            'timeLimit' => $game['timeLimit'],
+            'time' => $game['time'],
+            'won' => $game['won'] ? 1 : 0
+        ]);
+
+        $response = ['status' => 'success'];
     }
 
-    header('Content-Type: application/json');
-    echo json_encode($response);
-    exit;
-}
+    function getGamesByUsername() {
+        global $response;
+
+        $pdo = getDatabaseConnection();
+        $username = $_POST['username'];
+
+        $stmt = $pdo->prepare("
+            SELECT * FROM games WHERE username = :username
+        ");
+
+        $stmt->execute(['username' => $username]);
+        $games = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        foreach ($games as &$game) {
+            $game['datetime'] = gmdate('d/m/Y H:i', strtotime($game['datetime']));
+        }
+
+        $response = ['status' => 'success', 'games' => $games];
+    }
+
+    function getGamesRankingByMode() {
+        global $response;
+
+        $pdo = getDatabaseConnection();
+        $mode = $_POST['mode'];
+
+        $stmt = $pdo->prepare("
+            SELECT * FROM games WHERE mode = :mode AND (bombs/(`rows`*`cols`) >= 0.10) AND won
+            ORDER BY (`rows`*`cols`), bombs, time
+            LIMIT 10
+        ");
+
+        $stmt->execute(['mode' => $mode]);
+        $games = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        foreach ($games as &$game) {
+            $game['datetime'] = gmdate('d/m/Y H:i', strtotime($game['datetime']));
+        }
+
+        $response = ['status' => 'success', 'games' => $games];
+    }
 ?>

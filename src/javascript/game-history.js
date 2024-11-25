@@ -9,7 +9,8 @@ document.addEventListener('DOMContentLoaded', async function() {
         window.location.href = '../../index.html';
     }
 
-    const games = getGamesByUsername(currentUser.username);
+    
+    const games = await getGames(currentUser.username);
 
     for (let game of games) {
         const isClassicMode = game.mode == "classico"

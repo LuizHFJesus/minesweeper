@@ -20,9 +20,9 @@ CREATE TABLE games (
     `cols` INT NOT NULL,
     bombs INT NOT NULL,
     mode VARCHAR(10) NOT NULL,
-    time_limit INT NOT NULL,
+    timeLimit INT NULL,
     datetime DATETIME DEFAULT CURRENT_TIMESTAMP,
     time INT NOT NULL,
     won BOOLEAN NOT NULL,
-    FOREIGN KEY (username) REFERENCES users(username)
+    FOREIGN KEY (username) REFERENCES users(username) ON DELETE CASCADE
 );
