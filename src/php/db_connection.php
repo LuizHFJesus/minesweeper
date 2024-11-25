@@ -1,6 +1,6 @@
 <?php
 const DB_HOST = 'localhost';
-const DB_NAME = 'minesweeper2';
+const DB_NAME = 'minesweeper';
 const DB_USER = 'root';
 const DB_PASS = ''; // Adjust if you have a password in MySQL
 
