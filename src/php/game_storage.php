@@ -69,7 +69,8 @@
         $games = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
         foreach ($games as &$game) {
-            $game['datetime'] = gmdate('d/m/Y H:i', strtotime($game['datetime']));
+            $datetime = new DateTime($game['datetime'], new DateTimeZone('UTC'));
+            $game['datetime'] = $datetime->format('d/m/Y H:i');
         }
 
         $response = ['status' => 'success', 'games' => $games];
